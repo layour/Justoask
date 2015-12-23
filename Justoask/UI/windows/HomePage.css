@@ -1,13 +1,49 @@
-#HomePage{
- halign:center;
- height:fill;
- layout:vbox;
- width:fill;
- }
-#viewPage0 {
- halign:center;
- height:fill;
- layout:vbox;
- background:#F7F8F8;
- width:fill;
+ #HomePage {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+layout:vbox;
+background:#F7F8F8;
+width:fill;
+valign:TOP;
+}
+ #navigatorbar0 {
+padding-left:8;
+padding-right:8;
+halign:LEFT;
+height:44.0;
+color:#323232;
+layout:hbox;
+font-size:17;
+width:fill;
+font-family:default;
+valign:center;
+}
+ #button0 {
+halign:left;
+height:44;
+width:44;
+background-image:icon_link.png;
+}
+ #label0 {
+halign:center;
+height:fill;
+weight:1;
+color:#000000;
+font-size:14;
+width:0;
+font-family:default;
+valign:center;
+}
+ #button1 {
+halign:right;
+height:44;
+width:44;
+background-image:icon_menu.png;
 }
