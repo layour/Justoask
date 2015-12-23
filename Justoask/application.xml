@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<application id="Justoask" appname="Justoask" versionCode="1" versionName="1" icon="app" theme="ios7" jsengine="v2.0" package="com.yonyou.justoask" language="zh_cn">
+<application id="Justoask" appname="问一下" versionCode="1" versionName="1" icon="app" theme="ios7" jsengine="v2.0" package="com.yonyou.justoask" language="zh_cn" autoCheckUpdate="false">
   <permission id="internet"/>
   <start view="HomePage"/>
   <!--view id="demo" ref="demo.dsl"><extend screenOrientation="landscape|portrait|unspecified"/></view-->
   <!--view id="demo" ref="demo.dsl"><extend windowSoftInputMode="stateUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|stateVisible|stateAlwaysVisible|adjustUnspecified|adjustResize|adjustPan"/></view-->
   <view id="HomePage" ref="HomePage.dsl" include="true"/>
-</application>
-<!--
+</application><!--
 【屏幕显示方向】
   screenOrientation: 屏幕显示方向
     landscape: 横向
