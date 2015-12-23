@@ -7,7 +7,7 @@
         <navigatorbar id="navigatorbar0" title="问一下">
             <input id="button0" class="ngbbuttonclass" type="button"/>
             <label id="label0"/>
-            <input id="button1" class="ngbbuttonclass" type="button"/> 
+            <input id="button1" class="ngbbuttonclass" onclick="this.openPopMenu()" type="button"/> 
         </navigatorbar> 
     </div> 
 </window>
