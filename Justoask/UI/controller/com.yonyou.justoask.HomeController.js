@@ -1,11 +1,11 @@
 //JavaScript Framework 2.0 Code
 try{
-Type.registerNamespace('com.yonyou.justoask.HomePageController');
-com.yonyou.justoask.HomePageController = function() {
-    com.yonyou.justoask.HomePageController.initializeBase(this);
+Type.registerNamespace('com.yonyou.justoask.HomeController');
+com.yonyou.justoask.HomeController = function() {
+    com.yonyou.justoask.HomeController.initializeBase(this);
     this.initialize();
 }
-function com$yonyou$justoask$HomePageController$initialize(){
+function com$yonyou$justoask$HomeController$initialize(){
     //you can programing by $ctx API
     //get the context data through $ctx.get()
     //set the context data through $ctx.push(json)
@@ -32,16 +32,16 @@ function com$yonyou$justoask$HomePageController$initialize(){
     
 }
     
-function com$yonyou$justoask$HomePageController$evaljs(js){
+function com$yonyou$justoask$HomeController$evaljs(js){
     eval(js)
 }
-function com$yonyou$justoask$HomePageController$openPopMenu(sender, args){
+function com$yonyou$justoask$HomeController$openPopMenu(sender, args){
 
 }
-com.yonyou.justoask.HomePageController.prototype = {
-    openPopMenu : com$yonyou$justoask$HomePageController$openPopMenu,
-    initialize : com$yonyou$justoask$HomePageController$initialize,
-    evaljs : com$yonyou$justoask$HomePageController$evaljs
+com.yonyou.justoask.HomeController.prototype = {
+    openPopMenu : com$yonyou$justoask$HomeController$openPopMenu,
+    initialize : com$yonyou$justoask$HomeController$initialize,
+    evaljs : com$yonyou$justoask$HomeController$evaljs
 };
-com.yonyou.justoask.HomePageController.registerClass('com.yonyou.justoask.HomePageController',UMP.UI.Mvc.Controller);
+com.yonyou.justoask.HomeController.registerClass('com.yonyou.justoask.HomeController',UMP.UI.Mvc.Controller);
 }catch(e){$e(e);}
