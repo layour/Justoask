@@ -3,7 +3,7 @@
 <window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="Home" controller="HomeController" namespace="com.yonyou.justoask">
     <import ref="Home.css" type="css"/>
     <link type="text/css" href="sys/theme.css"/>
-    <div id="viewPage0">
+    <div id="viewPage0" onload="this.homeLoad()">
         <navigatorbar id="navigatorbar0" title="问一下">
             <input id="button0" class="ngbbuttonclass" type="button"/>
             <label id="label0"/>
