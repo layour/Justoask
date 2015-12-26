@@ -5,10 +5,16 @@
   <start view="Home"/>  
   <!--view id="demo" ref="demo.dsl"><extend screenOrientation="landscape|portrait|unspecified"/></view-->  
   <!--view id="demo" ref="demo.dsl"><extend windowSoftInputMode="stateUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|stateVisible|stateAlwaysVisible|adjustUnspecified|adjustResize|adjustPan"/></view-->  
-  <view id="Home" ref="Home.dsl" include="true"/>  
+  <view id="Home" ref="Home.dsl" include="true"> 
+    <extend type="ios" statusbarcolor="#cccccc"/> 
+  </view>  
   <import id="SpeechService" type="mobile" ref="service"/>  
-  <view id="Setting" ref="Setting.dsl" include="true"/>  
-  <view id="Favorite" ref="Favorite.dsl" include="true"/> 
+  <view id="Setting" ref="Setting.dsl" include="true"> 
+    <extend type="ios" statusbarcolor="#858586"/> 
+  </view>  
+  <view id="Favorite" ref="Favorite.dsl" include="true"> 
+    <extend type="ios" statusbarcolor="#858586"/> 
+  </view> 
 </application>
 <!--
 【屏幕显示方向】

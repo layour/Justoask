@@ -40,11 +40,11 @@ try {
 		$menu.openDropDownList({
 			"controlid" : "button1",
 			"dropDownListWidth" : "120",
-			"background" : "#2e2e2e",
+			"background" : "#858586",
 			"panelstyle" : "round-div",
 			"font-size" : "15",
-			"color" : "#ffffff",
-			"split-color" : "#eeeeee",
+			"color" : "#f1f4f5",
+			"split-color" : "#f1f4f5",
 			"showtype" : "right",
 			"dropItemsArray" : [{
 				"name" : "收藏夹", //菜单项名称

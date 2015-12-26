@@ -1,13 +1,82 @@
-#Favorite{
- halign:center;
- height:fill;
- layout:vbox;
- width:fill;
- }
-#viewPage0 {
- halign:center;
- height:fill;
- layout:vbox;
- background:#F7F8F8;
- width:fill;
+ #Favorite {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+layout:vbox;
+background:#D5D5D5;
+width:fill;
+valign:TOP;
+}
+ #navigatorbar0 {
+padding-left:8;
+padding-right:8;
+halign:LEFT;
+height:44.0;
+color:#232323;
+font-size:20;
+layout:hbox;
+background:#858586;
+width:fill;
+font-family:default;
+valign:center;
+}
+ #button0 {
+padding-left:20;
+halign:left;
+height:44;
+color:#e50011;
+font-size:20;
+width:44;
+font-family:default;
+valign:center;
+background-image:back.png;
+}
+ #label0 {
+halign:center;
+height:fill;
+weight:1;
+color:#000000;
+font-size:14;
+width:0;
+font-family:default;
+valign:center;
+}
+ #listviewdefine0 {
+margin-right:10;
+halign:center;
+height:0;
+weight:1;
+layout:vbox;
+width:fill;
+margin-left:10;
+margin-bottom:10;
+margin-top:10;
+valign:TOP;
+}
+ #panel0 {
+border-bottom-width:1;
+halign:LEFT;
+height:60.0;
+layout:hbox;
+background:#dee8ed;
+width:fill;
+valign:center;
+border-bottom-color:#f1f4f5;
+}
+ #label1 {
+margin-right:10;
+halign:left;
+height:fill;
+color:#555555;
+font-size:15;
+width:fill;
+margin-left:10;
+font-family:default;
+valign:center;
 }

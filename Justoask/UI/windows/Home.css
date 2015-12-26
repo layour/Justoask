@@ -9,16 +9,16 @@ valign:TOP;
 halign:center;
 height:fill;
 layout:vbox;
+background:#cccccc;
 width:fill;
 valign:TOP;
-background-image:sudoku_dandelionbg.png;
 }
  #navigatorbar0 {
 padding-right:8;
 padding-left:8;
 halign:LEFT;
 height:44.0;
-color:#ffffff;
+color:#8b8b8b;
 font-size:20;
 layout:hbox;
 width:fill;
@@ -29,13 +29,13 @@ valign:center;
 halign:left;
 height:44;
 width:44;
-background-image:icon_link.png;
+background-image:share.png;
 }
  #label0 {
 halign:center;
 height:fill;
 weight:1;
-color:#000000;
+color:#8b8b8b;
 font-size:14;
 width:0;
 font-family:default;
@@ -45,5 +45,29 @@ valign:center;
 halign:right;
 height:44;
 width:44;
-background-image:icon_menu.png;
+background-image:more.png;
+}
+ #panel0 {
+halign:center;
+height:0;
+weight:1;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #panel1 {
+halign:CENTER;
+height:140;
+layout:hbox;
+width:fill;
+valign:center;
+}
+ #button2 {
+height:100;
+width:100;
+background-image:microphone.png;
+}
+ #image0 {
+height:100;
+width:100;
 }

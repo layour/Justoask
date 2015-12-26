@@ -8,6 +8,11 @@
             <input id="button0" class="ngbbuttonclass" type="button"/>
             <label id="label0"/>
             <input id="button1" class="ngbbuttonclass" onclick="this.openPopMenu()" type="button"/> 
-        </navigatorbar> 
+        </navigatorbar>
+        <div id="panel0"/>
+        <div id="panel1">
+            <input id="button2" class="textbtnclass" type="button"/>
+            <image id="image0" scaletype="fitxy" src="microphone_active.gif"/> 
+        </div> 
     </div> 
 </window>
