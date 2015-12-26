@@ -1,6 +1,6 @@
  #Home {
 halign:center;
-height:fill;
+height:569;
 layout:vbox;
 width:fill;
 valign:TOP;
@@ -54,6 +54,16 @@ weight:1;
 layout:vbox;
 width:fill;
 valign:TOP;
+}
+ #button2 {
+height:44;
+widthWrap:36.0;
+width:wrap;
+}
+ #button3 {
+height:44;
+widthWrap:36.0;
+width:wrap;
 }
  #panel1 {
 halign:CENTER;

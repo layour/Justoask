@@ -42,7 +42,7 @@ try {
 			"dropDownListWidth" : "120",
 			"background" : "#858586",
 			"panelstyle" : "round-div",
-			"font-size" : "15",
+			"font-size" : "16",
 			"color" : "#f1f4f5",
 			"split-color" : "#f1f4f5",
 			"showtype" : "right",
@@ -75,20 +75,46 @@ try {
 	}
 
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
+		//切换图片状态
 		microphoneChange();
+
+		$service.call("SpeechService.init", {}, false);
+		$service.call("SpeechService.openSpeechBackString", {
+			"callback" : "microphonecallback()"
+		}, false);
 	}
-	
-	function microphoneChange(){
+
+	function microphoneChange() {
 		var imageSrc = $id("image0").get("src");
-		if(imageSrc == "microphone.png"){
+		if (imageSrc == "microphone.png") {
 			$id("image0").set("src", "microphone_active.gif");
 		} else {
 			$id("image0").set("src", "microphone.png");
 		}
 	}
 
+	function microphonecallback() {
+		$alert($stringToJSON(args).text);
+	}
+
+	function com$yonyou$justoask$HomeController$button2_onclick(sender, args) {
+		$view.open({
+			"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
+			"isKeep" : "true"
+		});
+	}
+
+	function com$yonyou$justoask$HomeController$button3_onclick(sender, args) {
+		$view.open({
+			"viewid" : "com.yonyou.justoask.Register", //目标页面（首字母大写）全名，
+			"isKeep" : "true"
+		});
+	}
+
 
 	com.yonyou.justoask.HomeController.prototype = {
+		button3_onclick : com$yonyou$justoask$HomeController$button3_onclick,
+		button2_onclick : com$yonyou$justoask$HomeController$button2_onclick,
 		microphone : com$yonyou$justoask$HomeController$microphone,
 		homeLoad : com$yonyou$justoask$HomeController$homeLoad,
 		openPopMenu : com$yonyou$justoask$HomeController$openPopMenu,

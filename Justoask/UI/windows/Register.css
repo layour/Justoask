@@ -1,0 +1,173 @@
+ #Register {
+halign:center;
+height:569;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+background:#cccccc;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #navigatorbar1 {
+padding-right:8;
+padding-left:8;
+halign:LEFT;
+height:44.0;
+color:#232323;
+background:#858586;
+layout:hbox;
+font-size:20;
+width:fill;
+font-family:default;
+valign:center;
+}
+ #button2 {
+padding-left:20;
+halign:left;
+height:44;
+color:#e50011;
+font-size:20;
+width:44;
+font-family:default;
+valign:center;
+background-image:back.png;
+}
+ #label4 {
+halign:center;
+height:fill;
+weight:1;
+color:#000000;
+font-size:14;
+width:0;
+font-family:default;
+valign:center;
+}
+ #button0 {
+height:30;
+border-radius:5;
+color:#dee8ed;
+font-size:16;
+background:#4d4d4d;
+width:48;
+}
+ #panel3 {
+margin-right:10;
+halign:center;
+height:150;
+layout:vbox;
+width:fill;
+margin-left:10;
+margin-top:10;
+valign:TOP;
+}
+ #panel0 {
+padding-left:5;
+border-bottom-width:1;
+halign:LEFT;
+height:50;
+background:#dee8ed;
+layout:hbox;
+width:fill;
+valign:center;
+border-bottom-color:#f1f4f5;
+}
+ #label0 {
+padding-right:9;
+halign:right;
+width:80;
+margin-right:5;
+height:wrap;
+color:#555555;
+heightWrap:23.0;
+border-right-color:#f1f4f5;
+font-size:16;
+border-right-width:1;
+font-family:default;
+valign:center;
+}
+ #textbox0 {
+padding-left:4;
+halign:LEFT;
+height:42;
+weight:1;
+color:#167ef8;
+font-size:16;
+background:#dee8ed;
+width:0;
+font-family:default;
+}
+ #panel1 {
+border-bottom-width:1;
+padding-left:5;
+halign:LEFT;
+height:50;
+layout:hbox;
+background:#dee8ed;
+width:fill;
+valign:center;
+border-bottom-color:#f1f4f5;
+}
+ #label1 {
+padding-right:9;
+halign:right;
+width:80;
+margin-right:5;
+height:wrap;
+color:#555555;
+heightWrap:23.0;
+border-right-color:#f1f4f5;
+font-size:16;
+border-right-width:1;
+font-family:default;
+valign:center;
+}
+ #textbox1 {
+padding-left:4;
+halign:LEFT;
+height:42;
+weight:1;
+color:#167ef8;
+font-size:16;
+background:#dee8ed;
+width:0;
+font-family:default;
+}
+ #panel2 {
+padding-left:5;
+halign:LEFT;
+height:50;
+layout:hbox;
+background:#dee8ed;
+width:fill;
+valign:center;
+}
+ #label2 {
+padding-right:9;
+halign:right;
+width:80;
+margin-right:5;
+height:wrap;
+color:#555555;
+heightWrap:23.0;
+border-right-color:#f1f4f5;
+font-size:16;
+border-right-width:1;
+font-family:default;
+valign:center;
+}
+ #textbox2 {
+padding-left:4;
+halign:LEFT;
+height:42;
+weight:1;
+color:#167ef8;
+font-size:16;
+background:#dee8ed;
+width:0;
+font-family:default;
+}
