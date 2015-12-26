@@ -62,11 +62,6 @@ layout:hbox;
 width:fill;
 valign:center;
 }
- #button2 {
-height:100;
-width:100;
-background-image:microphone.png;
-}
  #image0 {
 height:100;
 width:100;

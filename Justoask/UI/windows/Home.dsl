@@ -11,8 +11,7 @@
         </navigatorbar>
         <div id="panel0"/>
         <div id="panel1">
-            <input id="button2" class="textbtnclass" type="button"/>
-            <image id="image0" scaletype="fitxy" src="microphone_active.gif"/> 
+            <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/> 
         </div> 
     </div> 
 </window>

@@ -40,8 +40,45 @@ try {
 		$view.close();
 	}
 
+	function com$yonyou$justoask$SettingController$oladList(sender, args) {
+		var json = {
+			rows : [{
+				ListViewSelector : "0"
+			},{
+				ListViewSelector : "1",
+				id : "1",
+				rowkey : "主题切换",
+				rowvalue : "商务"
+			},{
+				ListViewSelector : "1",
+				id : "2",
+				rowkey : "语速设置",
+				rowvalue : "标准"
+			},{
+				ListViewSelector : "1",
+				id : "3",
+				rowkey : "语音播报选择",
+				rowvalue : "青年女声"
+			},{
+				ListViewSelector : "0"
+			},{
+				ListViewSelector : "1",
+				id : "4",
+				rowkey : "检测新版本",
+				rowvalue : "V1.0"
+			},{
+				ListViewSelector : "1",
+				id : "5",
+				rowkey : "意见反馈",
+				rowvalue : ""
+			}]
+		}
+		$ctx.push(json);
+	}
+
 
 	com.yonyou.justoask.SettingController.prototype = {
+		oladList : com$yonyou$justoask$SettingController$oladList,
 		closeSetting : com$yonyou$justoask$SettingController$closeSetting,
 		initialize : com$yonyou$justoask$SettingController$initialize,
 		evaljs : com$yonyou$justoask$SettingController$evaljs

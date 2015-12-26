@@ -14,14 +14,14 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar0 {
-padding-left:8;
 padding-right:8;
+padding-left:8;
 halign:LEFT;
 height:44.0;
 color:#232323;
-layout:hbox;
-font-size:20;
 background:#858586;
+font-size:20;
+layout:hbox;
 width:fill;
 font-family:default;
 valign:center;
@@ -43,19 +43,42 @@ width:0;
 font-family:default;
 valign:center;
 }
+ #panel2 {
+margin-right:10;
+halign:center;
+height:0;
+weight:1;
+layout:vbox;
+width:fill;
+margin-left:10;
+valign:TOP;
+}
+ #listviewdefine1 {
+list-type:group;
+halign:center;
+height:416.0;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
  #panel0 {
+halign:LEFT;
+height:10;
+layout:hbox;
+background:#D5D5D5;
+width:fill;
+valign:center;
+}
+ #panel1 {
 padding-left:5;
 border-bottom-width:1;
 halign:LEFT;
-width:fill;
-border-bottom-color:#f1f4f5;
-margin-right:10;
-height:44;
+height:50;
 background:#dee8ed;
 layout:hbox;
-margin-left:10;
-margin-top:10;
+width:fill;
 valign:center;
+border-bottom-color:#f1f4f5;
 }
  #label1 {
 halign:left;
@@ -68,53 +91,7 @@ width:0;
 font-family:default;
 valign:center;
 }
- #label7 {
-halign:center;
-height:wrap;
-widthWrap:30.0;
-color:#6f99bd;
-heightWrap:20.0;
-font-size:14;
-width:wrap;
-margin-left:5;
-font-family:default;
-valign:center;
-}
- #label8 {
-halign:center;
-height:25;
-color:#000000;
-font-size:14;
-width:25;
-font-family:default;
-valign:center;
-background-image:icon_enter.png;
-}
- #panel1 {
-border-bottom-width:1;
-padding-left:5;
-margin-right:10;
-halign:LEFT;
-height:44;
-layout:hbox;
-background:#dee8ed;
-width:fill;
-margin-left:10;
-valign:center;
-border-bottom-color:#f1f4f5;
-}
  #label2 {
-halign:left;
-height:wrap;
-weight:1;
-color:#555555;
-heightWrap:22.0;
-font-size:15;
-width:0;
-font-family:default;
-valign:center;
-}
- #label6 {
 halign:center;
 height:wrap;
 widthWrap:30.0;
@@ -124,132 +101,9 @@ font-size:14;
 width:wrap;
 margin-left:5;
 font-family:default;
-valign:center;
-}
- #label10 {
-halign:center;
-height:25;
-color:#000000;
-font-size:14;
-width:25;
-font-family:default;
-valign:center;
-background-image:icon_enter.png;
-}
- #panel2 {
-padding-left:5;
-margin-right:10;
-halign:LEFT;
-height:44;
-layout:hbox;
-background:#dee8ed;
-width:fill;
-margin-left:10;
 valign:center;
 }
  #label3 {
-halign:left;
-height:wrap;
-weight:1;
-color:#555555;
-heightWrap:22.0;
-font-size:15;
-width:0;
-font-family:default;
-valign:center;
-}
- #label4 {
-halign:center;
-height:wrap;
-widthWrap:60.0;
-color:#6f99bd;
-heightWrap:20.0;
-font-size:14;
-width:wrap;
-margin-left:5;
-font-family:default;
-valign:center;
-}
- #label11 {
-halign:center;
-height:25;
-color:#000000;
-font-size:14;
-width:25;
-font-family:default;
-valign:center;
-background-image:icon_enter.png;
-}
- #panel4 {
-padding-left:5;
-border-bottom-width:1;
-halign:LEFT;
-width:fill;
-border-bottom-color:#f1f4f5;
-margin-right:10;
-height:44;
-background:#dee8ed;
-layout:hbox;
-margin-left:10;
-margin-top:10;
-valign:center;
-}
- #label5 {
-halign:left;
-height:wrap;
-weight:1;
-color:#555555;
-heightWrap:22.0;
-font-size:15;
-width:0;
-font-family:default;
-valign:center;
-}
- #label14 {
-halign:center;
-height:wrap;
-widthWrap:29.0;
-color:#6f99bd;
-heightWrap:20.0;
-font-size:14;
-width:wrap;
-margin-left:5;
-font-family:default;
-valign:center;
-}
- #label12 {
-halign:center;
-height:25;
-color:#000000;
-font-size:14;
-width:25;
-font-family:default;
-valign:center;
-background-image:icon_enter.png;
-}
- #panel5 {
-padding-left:5;
-margin-right:10;
-halign:LEFT;
-height:44;
-layout:hbox;
-background:#dee8ed;
-width:fill;
-margin-left:10;
-valign:center;
-}
- #label9 {
-halign:left;
-height:wrap;
-weight:1;
-color:#555555;
-heightWrap:22.0;
-font-size:15;
-width:0;
-font-family:default;
-valign:center;
-}
- #label13 {
 halign:center;
 height:25;
 color:#000000;

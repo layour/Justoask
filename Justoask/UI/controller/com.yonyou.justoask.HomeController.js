@@ -74,8 +74,22 @@ try {
 		$js.backConfirm();
 	}
 
+	function com$yonyou$justoask$HomeController$microphone(sender, args) {
+		microphoneChange();
+	}
+	
+	function microphoneChange(){
+		var imageSrc = $id("image0").get("src");
+		if(imageSrc == "microphone.png"){
+			$id("image0").set("src", "microphone_active.gif");
+		} else {
+			$id("image0").set("src", "microphone.png");
+		}
+	}
+
 
 	com.yonyou.justoask.HomeController.prototype = {
+		microphone : com$yonyou$justoask$HomeController$microphone,
 		homeLoad : com$yonyou$justoask$HomeController$homeLoad,
 		openPopMenu : com$yonyou$justoask$HomeController$openPopMenu,
 		initialize : com$yonyou$justoask$HomeController$initialize,
