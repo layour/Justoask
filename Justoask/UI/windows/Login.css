@@ -8,9 +8,9 @@ valign:TOP;
  #viewPage0 {
 halign:center;
 height:fill;
+background:#cccccc;
 layout:vbox;
 width:fill;
-background:#cccccc;
 valign:TOP;
 }
  #panel0 {
@@ -37,11 +37,11 @@ margin-right:22;
 halign:center;
 height:88;
 border-radius:5;
-background:#dee8ed;
 layout:vbox;
+background:#dee8ed;
 width:fill;
-margin-left:22;
 opacity:0.52;
+margin-left:22;
 valign:TOP;
 }
  #panel2 {
@@ -94,7 +94,7 @@ font-family:default;
 }
  #panel4 {
 margin-right:25;
-halign:RIGHT;
+halign:LEFT;
 height:44;
 layout:hbox;
 width:fill;
@@ -117,6 +117,17 @@ height:40;
 width:40;
 check-on-image:check_on.png;
 check-off-image:check_off.png;
+}
+ #label2 {
+halign:right;
+height:fill;
+weight:1;
+color:#333333;
+font-size:14;
+width:0;
+margin-left:40;
+font-family:default;
+valign:center;
 }
  #button0 {
 border-radius:5;

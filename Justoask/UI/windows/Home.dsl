@@ -10,8 +10,7 @@
             <input id="button1" class="ngbbuttonclass" onclick="this.openPopMenu()" type="button"/> 
         </navigatorbar>
         <div id="panel0">
-            <input id="button2" value="登录" class="textbtnclass" onclick="this.button2_onclick()" type="button"/>
-            <input id="button3" value="注册" class="textbtnclass" onclick="this.button3_onclick()" type="button"/>
+            <input id="button2" value="登录" class="textbtnclass" onclick="this.button2_onclick()" type="button"/> 
         </div>
         <div id="panel1">
             <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/> 

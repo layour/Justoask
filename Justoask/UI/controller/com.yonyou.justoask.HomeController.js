@@ -104,16 +104,8 @@ try {
 		});
 	}
 
-	function com$yonyou$justoask$HomeController$button3_onclick(sender, args) {
-		$view.open({
-			"viewid" : "com.yonyou.justoask.Register", //目标页面（首字母大写）全名，
-			"isKeep" : "true"
-		});
-	}
-
 
 	com.yonyou.justoask.HomeController.prototype = {
-		button3_onclick : com$yonyou$justoask$HomeController$button3_onclick,
 		button2_onclick : com$yonyou$justoask$HomeController$button2_onclick,
 		microphone : com$yonyou$justoask$HomeController$microphone,
 		homeLoad : com$yonyou$justoask$HomeController$homeLoad,

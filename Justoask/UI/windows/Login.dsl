@@ -19,7 +19,8 @@
         </div>
         <div id="panel4">
             <label id="label1">自动登录</label>
-            <input id="checkbox0" type="checkbox"/> 
+            <input id="checkbox0" type="checkbox"/>
+            <label id="label2" onclick="this.openregister()">立即注册</label> 
         </div>
         <input id="button0" value="登录" class="textbtnclass" type="button"/>
         <div id="panel5"/> 

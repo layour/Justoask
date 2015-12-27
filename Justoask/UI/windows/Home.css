@@ -14,13 +14,13 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar0 {
-padding-right:8;
 padding-left:8;
+padding-right:8;
 halign:LEFT;
 height:44.0;
 color:#8b8b8b;
-font-size:20;
 layout:hbox;
+font-size:20;
 width:fill;
 font-family:default;
 valign:center;
@@ -56,11 +56,6 @@ width:fill;
 valign:TOP;
 }
  #button2 {
-height:44;
-widthWrap:36.0;
-width:wrap;
-}
- #button3 {
 height:44;
 widthWrap:36.0;
 width:wrap;
