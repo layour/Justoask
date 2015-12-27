@@ -59,8 +59,23 @@ try {
 		$view.close();
 	}
 
+	function com$yonyou$justoask$FavoriteController$listitemclick(sender, args) {
+		var rowData = $id("listviewdefine0").get("row");
+		var context = $stringToJSON(rowData).context;
+		$alert(context);
+		$service.call("SpeechService.openStringBackSpeech", {
+			"text" : context,
+			"callback" : "microphonecallback()"
+		}, false);
+	}
+	
+	function microphonecallback(){
+		$alert("speech");
+	}
+
 
 	com.yonyou.justoask.FavoriteController.prototype = {
+		listitemclick : com$yonyou$justoask$FavoriteController$listitemclick,
 		closeFavorite : com$yonyou$justoask$FavoriteController$closeFavorite,
 		loadList : com$yonyou$justoask$FavoriteController$loadList,
 		initialize : com$yonyou$justoask$FavoriteController$initialize,

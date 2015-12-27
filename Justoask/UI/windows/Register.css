@@ -14,14 +14,14 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar1 {
-padding-right:8;
 padding-left:8;
+padding-right:8;
 halign:LEFT;
 height:44.0;
 color:#232323;
-background:#858586;
-layout:hbox;
 font-size:20;
+layout:hbox;
+background:#858586;
 width:fill;
 font-family:default;
 valign:center;
@@ -51,8 +51,8 @@ valign:center;
 height:30;
 border-radius:5;
 color:#dee8ed;
-font-size:16;
 background:#4d4d4d;
+font-size:16;
 width:48;
 }
  #panel3 {
@@ -66,12 +66,12 @@ margin-top:10;
 valign:TOP;
 }
  #panel0 {
-padding-left:5;
 border-bottom-width:1;
+padding-left:5;
 halign:LEFT;
 height:50;
-background:#dee8ed;
 layout:hbox;
+background:#dee8ed;
 width:fill;
 valign:center;
 border-bottom-color:#f1f4f5;
@@ -93,21 +93,21 @@ valign:center;
  #textbox0 {
 padding-left:4;
 halign:LEFT;
-height:42;
+height:48;
 weight:1;
 color:#167ef8;
-font-size:16;
 background:#dee8ed;
+font-size:16;
 width:0;
 font-family:default;
 }
  #panel1 {
-border-bottom-width:1;
 padding-left:5;
+border-bottom-width:1;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 border-bottom-color:#f1f4f5;
@@ -129,11 +129,11 @@ valign:center;
  #textbox1 {
 padding-left:4;
 halign:LEFT;
-height:42;
+height:48;
 weight:1;
 color:#167ef8;
-font-size:16;
 background:#dee8ed;
+font-size:16;
 width:0;
 font-family:default;
 }
@@ -141,8 +141,8 @@ font-family:default;
 padding-left:5;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 }
@@ -163,11 +163,11 @@ valign:center;
  #textbox2 {
 padding-left:4;
 halign:LEFT;
-height:42;
+height:48;
 weight:1;
 color:#167ef8;
-font-size:16;
 background:#dee8ed;
+font-size:16;
 width:0;
 font-family:default;
 }

@@ -8,7 +8,7 @@
             <input id="button0" onclick="this.closeFavorite()" type="button"/>
             <label id="label0"/> 
         </navigatorbar>
-        <listView id="listviewdefine0" bindfield="list" onload="this.loadList()" collapsed="true">
+        <listView id="listviewdefine0" bindfield="list" onload="this.loadList()" onitemclick="this.listitemclick()" collapsed="true">
             <div id="panel0">
                 <label id="label1" bindfield="context" type="multiline">收藏内容</label> 
             </div> 
