@@ -82,13 +82,13 @@ try {
 				picker : [{
 					select : [{
 						value : 1,
-						content : "简约"
+						content : "快速"
 					}, {
 						value : 2,
-						content : "商务"
+						content : "标准"
 					}, {
 						value : 3,
-						content : "卡通"
+						content : "慢速"
 					}]
 				}]
 			},
