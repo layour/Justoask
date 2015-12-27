@@ -9,11 +9,11 @@
             <label id="label0"/>
             <input id="button1" class="ngbbuttonclass" onclick="this.openPopMenu()" type="button"/> 
         </navigatorbar>
-        <div id="panel0">
-            <input id="button2" value="登录" class="textbtnclass" onclick="this.button2_onclick()" type="button"/> 
-        </div>
+        <div id="panel0"></div>
         <div id="panel1">
-            <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/> 
+            <input id="button3" value="收藏" class="textbtnclass" type="button"/>
+            <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/>
+            <input id="button2" value="登录" class="textbtnclass" onclick="this.button2_onclick()" type="button"/> 
         </div> 
     </div> 
 </window>

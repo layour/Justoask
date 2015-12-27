@@ -8,8 +8,8 @@ valign:TOP;
  #viewPage0 {
 halign:center;
 height:fill;
-layout:vbox;
 background:#cccccc;
+layout:vbox;
 width:fill;
 valign:TOP;
 }
@@ -55,11 +55,6 @@ layout:vbox;
 width:fill;
 valign:TOP;
 }
- #button2 {
-height:44;
-widthWrap:36.0;
-width:wrap;
-}
  #panel1 {
 halign:CENTER;
 height:140;
@@ -67,7 +62,17 @@ layout:hbox;
 width:fill;
 valign:center;
 }
+ #button3 {
+height:44;
+weight:1;
+width:0;
+}
  #image0 {
 height:100;
 width:100;
+}
+ #button2 {
+height:44;
+weight:1;
+width:0;
 }
