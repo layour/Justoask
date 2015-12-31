@@ -1,0 +1,151 @@
+ #WeiXinShareResult {
+halign:center;
+height:fill;
+width:fill;
+layout:vbox;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+width:fill;
+background:#F5F5F5;
+layout:vbox;
+valign:TOP;
+}
+ #navigatorbar0 {
+halign:LEFT;
+background:#454545;
+}
+ #button0 {
+halign:left;
+height:44;
+widthWrap:36.0;
+font-size:17;
+width:wrap;
+font-pressed-color:#ffffff;
+}
+ #label0 {
+halign:center;
+height:fill;
+weight:1;
+color:#000000;
+font-size:14;
+width:0;
+font-family:default;
+valign:center;
+}
+ #button1 {
+height:44;
+widthWrap:36.0;
+color:#00e339;
+width:wrap;
+font-pressed-color:#00e339;
+}
+ #panel3 {
+halign:center;
+height:wrap;
+heightWrap:300.0;
+layout:vbox;
+background:#ffffff;
+width:fill;
+valign:TOP;
+}
+ #textarea0 {
+padding-right:4;
+padding-left:4;
+padding-top:14;
+halign:LEFT;
+height:64;
+color:#167ef8;
+font-size:17;
+background:#ffffff;
+width:fill;
+font-family:default;
+padding-bottom:14;
+}
+ #panel0 {
+margin-right:10;
+halign:LEFT;
+height:80;
+background:#e4e4e4;
+layout:hbox;
+width:fill;
+margin-left:10;
+valign:center;
+}
+ #image1 {
+height:60;
+width:60;
+margin-left:10;
+}
+ #panel1 {
+padding-right:10;
+padding-left:10;
+padding-top:10;
+halign:center;
+height:fill;
+weight:1;
+layout:vbox;
+width:0;
+valign:TOP;
+padding-bottom:10;
+}
+ #label1 {
+halign:left;
+height:wrap;
+color:#000000;
+heightWrap:44.0;
+font-size:14;
+width:fill;
+font-family:default;
+valign:top;
+}
+ #panel4 {
+margin-right:10;
+halign:LEFT;
+height:1;
+background:#e4e4e4;
+layout:hbox;
+width:fill;
+margin-left:10;
+margin-bottom:10;
+margin-top:10;
+valign:center;
+}
+ #panel2 {
+border-bottom-width:1;
+margin-right:10;
+halign:LEFT;
+height:60.0;
+background:#e4e4e4;
+layout:hbox;
+width:fill;
+margin-left:10;
+valign:center;
+border-bottom-color:#c0c0c0;
+}
+ #image2 {
+height:25;
+width:25;
+margin-left:10;
+}
+ #label4 {
+padding-top:10;
+halign:left;
+weight:1;
+width:0;
+padding-bottom:10;
+margin-right:10;
+height:fill;
+color:#000000;
+font-size:16;
+margin-left:10;
+font-family:default;
+valign:center;
+}
+ #image3 {
+margin-right:10;
+height:12;
+width:8;
+}

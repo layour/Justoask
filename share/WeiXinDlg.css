@@ -1,0 +1,91 @@
+ #WeiXinDlg {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+layout:vbox;
+background:#F5F5F5;
+width:fill;
+valign:TOP;
+}
+ #panel0 {
+border-bottom-width:1;
+halign:CENTER;
+height:44;
+layout:hbox;
+width:fill;
+valign:center;
+border-bottom-color:#c0c0c0;
+}
+ #label0 {
+halign:center;
+height:wrap;
+widthWrap:57.0;
+color:#808080;
+heightWrap:26.0;
+font-size:18;
+width:wrap;
+font-family:default;
+valign:center;
+}
+ #panel1 {
+halign:center;
+height:0;
+weight:1;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #panel3 {
+halign:LEFT;
+height:60.0;
+layout:hbox;
+width:fill;
+margin-top:10;
+valign:center;
+}
+ #imagebutton0 {
+width:64;
+icon-width:25;
+icon-height:25;
+height:49;
+font-size:10;
+icon-background-image:icon_friend.png;
+icon-pressed-image:icon_friend.png;
+icon-text-spacing:3;
+}
+ #imagebutton1 {
+width:64;
+icon-width:25;
+icon-height:25;
+height:49;
+font-size:10;
+icon-background-image:icon_weixin.png;
+icon-pressed-image:icon_weixin.png;
+icon-text-spacing:3;
+}
+ #panel2 {
+border-top-color:#c0c0c0;
+halign:CENTER;
+height:44;
+layout:hbox;
+width:fill;
+valign:center;
+border-top-width:1;
+}
+ #label1 {
+halign:center;
+height:wrap;
+widthWrap:38.0;
+color:#0080ff;
+heightWrap:26.0;
+font-size:18;
+width:wrap;
+font-family:default;
+valign:center;
+}
