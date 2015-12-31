@@ -16,7 +16,7 @@
     <extend type="ios" statusbarcolor="#858586"/> 
   </view>  
   <view id="Login" ref="Login.dsl" include="true"/>  
-  <view id="Register" ref="Register.dsl" include="true"/>
+  <view id="Register" ref="Register.dsl" include="true"/> 
 </application>
 <!--
 【屏幕显示方向】

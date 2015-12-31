@@ -5,11 +5,11 @@
     <link type="text/css" href="sys/theme.css"/>
     <div id="viewPage0" onload="this.homeLoad()">
         <navigatorbar id="navigatorbar0" title="问一下">
-            <input id="button0" class="ngbbuttonclass" type="button"/>
+            <input id="button0" class="ngbbuttonclass" onclick="this.openShare()" type="button"/>
             <label id="label0"/>
             <input id="button1" class="ngbbuttonclass" onclick="this.openPopMenu()" type="button"/> 
         </navigatorbar>
-        <div id="panel0"></div>
+        <div id="panel0"/>
         <div id="panel1">
             <input id="button3" value="收藏" class="textbtnclass" type="button"/>
             <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/>

@@ -72,13 +72,18 @@ try {
 
 	function com$yonyou$justoask$HomeController$homeLoad(sender, args) {
 		$js.backConfirm();
+		
+		//初始化语音
+		$service.call("SpeechService.init", {}, false);
+		//初始化分享
+		$wxshare.init({"appid" : "wx9aaa6c47f70709e3"});//签名a74ab91cf78a537e8a0266875b1d340d
 	}
 
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
 		//切换图片状态
 		microphoneChange();
 
-		$service.call("SpeechService.init", {}, false);
+		//说话
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "microphonecallback()"
 		}, false);
@@ -104,8 +109,13 @@ try {
 		});
 	}
 
+	function com$yonyou$justoask$HomeController$openShare(sender, args) {
+		//
+	}
+
 
 	com.yonyou.justoask.HomeController.prototype = {
+		openShare : com$yonyou$justoask$HomeController$openShare,
 		button2_onclick : com$yonyou$justoask$HomeController$button2_onclick,
 		microphone : com$yonyou$justoask$HomeController$microphone,
 		homeLoad : com$yonyou$justoask$HomeController$homeLoad,
