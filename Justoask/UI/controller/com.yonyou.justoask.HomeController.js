@@ -112,6 +112,7 @@ try {
 	function com$yonyou$justoask$HomeController$openShare(sender, args) {
 		$window.showModalDialog({
 		    "dialogId" : "com.yonyou.justoask.Share",//Dialog的唯一标识（包名+ID），ID要求首字母大写
+		    "arguments" : {},//arguments为传递至Dialog的自定义JSON参数
 		    "features" : {
 		        //"dialogLeft" : "100",//Dialog距离屏幕左侧的位置
 		        //"dialogTop" : "150",//Dialog距离屏幕顶端的位置
