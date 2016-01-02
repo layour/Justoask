@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<application id="Justoask" appname="Justoask" versionCode="1" versionName="1" icon="app" jsengine="v2.0" push_enable="false">
-  <permission id="internet"/>
-  <components>
-    <component name="Justoask" start="true"/>
-  </components>
+<application id="Justoask" appname="Justoask" versionCode="1" versionName="1" icon="app" jsengine="v2.0" push_enable="false"> 
+  <permission id="internet"/>  
+  <components> 
+    <component name="Justoask" start="true"/> 
+  </components>  
+  <import id="weixin" type="mobile" ref="component"/>
   <import id="SpeechService" type="mobile" ref="service"/>
 </application>

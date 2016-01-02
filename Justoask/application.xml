@@ -8,7 +8,6 @@
   <view id="Home" ref="Home.dsl" include="true"> 
     <extend type="ios" statusbarcolor="#cccccc"/> 
   </view>  
-  <import id="SpeechService" type="mobile" ref="service"/>  
   <view id="Setting" ref="Setting.dsl" include="true"> 
     <extend type="ios" statusbarcolor="#858586"/> 
   </view>  
@@ -16,7 +15,10 @@
     <extend type="ios" statusbarcolor="#858586"/> 
   </view>  
   <view id="Login" ref="Login.dsl" include="true"/>  
-  <view id="Register" ref="Register.dsl" include="true"/> 
+  <view id="Register" ref="Register.dsl" include="true"/>  
+  <view id="Share" ref="Share.dlg" include="true"/>  
+  <import id="weixin" type="mobile" ref="component"/>
+  <import id="SpeechService" type="mobile" ref="service"/>
 </application>
 <!--
 【屏幕显示方向】

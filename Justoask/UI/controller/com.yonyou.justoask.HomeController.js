@@ -98,7 +98,7 @@ try {
 		}
 	}
 
-	function microphonecallback() {
+	function microphonecallback(sender, args) {
 		$alert($stringToJSON(args).text);
 	}
 
@@ -110,7 +110,16 @@ try {
 	}
 
 	function com$yonyou$justoask$HomeController$openShare(sender, args) {
-		//
+		$window.showModalDialog({
+		    "dialogId" : "com.yonyou.justoask.Share",//Dialog的唯一标识（包名+ID），ID要求首字母大写
+		    "features" : {
+		        //"dialogLeft" : "100",//Dialog距离屏幕左侧的位置
+		        //"dialogTop" : "150",//Dialog距离屏幕顶端的位置
+		        "dialogWidth" : "250",
+		        "dialogHeight" : "180"
+		    },
+		    "animation-type" : "center"//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
+		});
 	}
 
 

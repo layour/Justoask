@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="Share" controller="ShareController" type="dialog" namespace="com.yonyou.justoask">
+    <import ref="Share.css" type="css"/>
+    <link type="text/css" href="sys/theme.css"/>
+    <div id="viewPage0" onload="this.loadShare()">
+        <div id="panel0">
+            <label id="label0">分享到</label> 
+        </div>
+        <div id="panel1">
+            <input id="imagebutton1" value="微信好友" istogglebutton="false" class="imagebuttonclass" onclick="this.circleEidt()" type="imagebutton" checked="false"/>
+            <input id="imagebutton0" value="微信朋友圈" istogglebutton="false" class="imagebuttonclass" onclick="this.friendEdit()" type="imagebutton" checked="false"/> 
+        </div>
+        <div id="panel2" onclick="choseShareDialog()">
+            <label id="label1">取消</label> 
+        </div> 
+    </div> 
+</window>

@@ -11,9 +11,7 @@
         </navigatorbar>
         <div id="panel0"/>
         <div id="panel1">
-            <input id="button3" value="收藏" class="textbtnclass" type="button"/>
-            <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/>
-            <input id="button2" value="登录" class="textbtnclass" onclick="this.button2_onclick()" type="button"/> 
+            <image id="image0" onclick="this.microphone()" scaletype="fitxy" src="microphone.png"/> 
         </div> 
     </div> 
 </window>
