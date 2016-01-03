@@ -62,15 +62,9 @@ try {
 	function com$yonyou$justoask$FavoriteController$listitemclick(sender, args) {
 		var rowData = $id("listviewdefine0").get("row");
 		var context = $stringToJSON(rowData).context;
-		$alert(context);
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : context,
-			"callback" : "microphonecallback()"
+			"text" : context
 		}, false);
-	}
-	
-	function microphonecallback(){
-		$alert("speech");
 	}
 
 

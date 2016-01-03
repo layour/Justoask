@@ -77,6 +77,11 @@ try {
 		$service.call("SpeechService.init", {}, false);
 		//初始化分享
 		$wxshare.init({"appid" : "wx9aaa6c47f70709e3"});//签名a74ab91cf78a537e8a0266875b1d340d
+		
+		//语音提示
+		$service.call("SpeechService.openStringBackSpeech", {
+			"text" : "您有什么问题吗？"
+		}, false);
 	}
 
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
@@ -99,7 +104,11 @@ try {
 	}
 
 	function microphonecallback(sender, args) {
-		$alert($stringToJSON(args).text);
+		var askStr = $stringToJSON(args).text;
+		
+		$service.call("SpeechService.openStringBackSpeech", {
+			"text" : "您的问题是：" + askStr
+		}, false);
 	}
 
 	function com$yonyou$justoask$HomeController$button2_onclick(sender, args) {
