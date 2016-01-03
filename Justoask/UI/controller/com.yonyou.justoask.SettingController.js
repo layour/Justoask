@@ -69,7 +69,7 @@ try {
 		var oldValue = $id("label5").get("value");
 		if (oldValue != changeValue) {
 			$id("label5").set("value", changeValue);
-			$cache.write(com.yonyou.justoask.GlobalResources.SettingObj.THEME, changeValue);
+			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.THEME, changeValue);
 		}
 	}
 
@@ -102,7 +102,7 @@ try {
 		var oldValue = $id("label2").get("value");
 		if (oldValue != changeValue) {
 			$id("label2").set("value", changeValue);
-			$cache.write(com.yonyou.justoask.GlobalResources.SettingObj.SPEECH, changeValue);
+			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.SPEECH, changeValue);
 		}
 	}
 
@@ -135,7 +135,7 @@ try {
 		var oldValue = $id("label8").get("value");
 		if (oldValue != changeValue) {
 			$id("label8").set("value", changeValue);
-			$cache.write(com.yonyou.justoask.GlobalResources.SettingObj.TYPE, changeValue);
+			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.TYPE, changeValue);
 		}
 	}
 
@@ -148,9 +148,9 @@ try {
 	}
 
 	function com$yonyou$justoask$SettingController$loadsetting(sender, args) {
-		var theme = $cache.read(com.yonyou.justoask.GlobalResources.SettingObj.THEME);
-		var speech = $cache.read(com.yonyou.justoask.GlobalResources.SettingObj.SPEECH);
-		var type = $cache.read(com.yonyou.justoask.GlobalResources.SettingObj.TYPE);
+		var theme = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.THEME);
+		var speech = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH);
+		var type = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE);
 		if(theme){
 			$id("label5").set("value", theme);
 		}

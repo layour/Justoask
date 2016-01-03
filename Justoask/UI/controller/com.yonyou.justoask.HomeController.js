@@ -78,6 +78,11 @@ try {
 		//初始化分享
 		$wxshare.init({"appid" : "wx9aaa6c47f70709e3"});//签名a74ab91cf78a537e8a0266875b1d340d
 		
+		//延时提示
+		setTimeout(initSpeech, 1000);
+	}
+	
+	function initSpeech(){
 		//语音提示
 		$service.call("SpeechService.openStringBackSpeech", {
 			"text" : "您有什么问题吗？"
@@ -106,9 +111,41 @@ try {
 	function microphonecallback(sender, args) {
 		var askStr = $stringToJSON(args).text;
 		
+		//复读问题
 		$service.call("SpeechService.openStringBackSpeech", {
 			"text" : "您的问题是：" + askStr
 		}, false);
+		
+		//搜索答案
+		
+		//是否收藏
+		$service.call("SpeechService.openStringBackSpeech", {
+			"text" : "是否收藏这个问题？"
+		}, false);
+		$service.call("SpeechService.openSpeechBackString", {
+			"callback" : "favoritecallback()"
+		}, false);
+	}
+	
+	function favoritecallback(sender, args){
+		var favoriteStr = $stringToJSON(args).text;
+		
+		if(favoriteStr.indexOf("是") > -1 || favoriteStr.indexOf("收藏") > -1){
+			var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
+			if(autoLogin == true){
+				//收藏一个问题
+				
+			} else {
+				//先登录
+				$view.open({
+					"viewid" : "com.yonyou.justoask.Login",//目标页面（首字母大写）全名，
+					"isKeep" : "true"
+				});
+				
+				//再收藏一个问题
+				
+			}
+		}
 	}
 
 	function com$yonyou$justoask$HomeController$button2_onclick(sender, args) {

@@ -38,13 +38,27 @@ try {
 
 	function com$yonyou$justoask$LoginController$openregister(sender, args) {
 		$view.open({
-			"viewid" : "com.yonyou.justoask.Register",//目标页面（首字母大写）全名，
+			"viewid" : "com.yonyou.justoask.Register", //目标页面（首字母大写）全名，
 			"isKeep" : "false"
 		});
 	}
 
+	function com$yonyou$justoask$LoginController$userLogin(sender, args) {
+		var username = $id("textbox0").get("value");
+		var password = $id("textbox1").get("value");
+		var autologin = $id("checkbox0").get("checked");
+		
+		//用户名密码登录
+		
+		//成功后写缓存
+		$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, username);
+		$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, password);
+		$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, autologin);
+	}
+
 
 	com.yonyou.justoask.LoginController.prototype = {
+		userLogin : com$yonyou$justoask$LoginController$userLogin,
 		openregister : com$yonyou$justoask$LoginController$openregister,
 		initialize : com$yonyou$justoask$LoginController$initialize,
 		evaljs : com$yonyou$justoask$LoginController$evaljs

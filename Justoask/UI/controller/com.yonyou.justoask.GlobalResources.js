@@ -3,12 +3,19 @@ try {
 	//声明命名空间
 	Type.registerNamespace('com.yonyou.justoask.GlobalResources');
 	
-	//声明变量
-	com.yonyou.justoask.GlobalResources.SettingObj = new Object();
+	//声明Setting变量
+	com.yonyou.justoask.GlobalResources.settingObj = new Object();
 	
-	com.yonyou.justoask.GlobalResources.SettingObj.THEME = "THEME";
-	com.yonyou.justoask.GlobalResources.SettingObj.SPEECH = "SPEECH";
-	com.yonyou.justoask.GlobalResources.SettingObj.TYPE = "TYPE";
+	com.yonyou.justoask.GlobalResources.settingObj.THEME = "THEME";
+	com.yonyou.justoask.GlobalResources.settingObj.SPEECH = "SPEECH";
+	com.yonyou.justoask.GlobalResources.settingObj.TYPE = "TYPE";
+	
+	//声明User变量
+	com.yonyou.justoask.GlobalResources.userObj = new Object();
+	
+	com.yonyou.justoask.GlobalResources.userObj.USERNAME = "USERNAME";
+	com.yonyou.justoask.GlobalResources.userObj.PASSWORD = "PASSWORD";
+	com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN = "AUTOLOGIN";
 	
 	//声明方法
 	com.yonyou.justoask.GlobalResources.isEmptyString = function(param){
