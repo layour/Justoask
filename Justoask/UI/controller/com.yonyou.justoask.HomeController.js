@@ -111,17 +111,18 @@ try {
 	function microphonecallback(sender, args) {
 		var askStr = $stringToJSON(args).text;
 		
-		//复读问题
-		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + askStr
-		}, false);
-		
 		//搜索答案
+		var result = "";
 		
-		//是否收藏
+		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "是否收藏这个问题？"
+			"text" : "您的问题是：" + askStr + result + "是否收藏这个问题？",
+			"callback" : "speechaskcallback()"
 		}, false);
+	}
+	
+	function speechaskcallback(){
+		$alert(111);
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "favoritecallback()"
 		}, false);
