@@ -7,7 +7,7 @@
         <navigatorbar id="navigatorbar1">
             <input id="button2" onclick="this.closeRegister()" type="button"/>
             <label id="label4"/>
-            <input id="button0" value="注册" class="textbtnclass" type="button"/> 
+            <input id="button0" value="注册" class="textbtnclass" onclick="this.userRegister()" type="button"/> 
         </navigatorbar>
         <div id="panel3">
             <div id="panel0">

@@ -40,8 +40,30 @@ try {
 		$view.close();
 	}
 
+	function com$yonyou$justoask$RegisterController$userRegister(sender, args) {
+		var username = $id("textbox0").get("value");
+		var password = $id("textbox1").get("value");
+		var repassword = $id("textbox2").get("value");
+		
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(username)){
+			$alert("用户名不能为空！");
+			return;
+		}
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(password)){
+			$alert("密码不能为空！");
+			return;
+		}
+		if(password != repassword){
+			$alert("用户名不能为空！");
+			return;
+		}
+		//注册用户
+		
+	}
+
 
 	com.yonyou.justoask.RegisterController.prototype = {
+		userRegister : com$yonyou$justoask$RegisterController$userRegister,
 		closeRegister : com$yonyou$justoask$RegisterController$closeRegister,
 		initialize : com$yonyou$justoask$RegisterController$initialize,
 		evaljs : com$yonyou$justoask$RegisterController$evaljs

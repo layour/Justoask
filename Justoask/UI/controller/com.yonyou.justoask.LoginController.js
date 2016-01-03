@@ -48,6 +48,14 @@ try {
 		var password = $id("textbox1").get("value");
 		var autologin = $id("checkbox0").get("checked");
 		
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(username)){
+			$alert("用户名不能为空！");
+			return;
+		}
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(password)){
+			$alert("密码不能为空！");
+			return;
+		}
 		//用户名密码登录
 		
 		//成功后写缓存
