@@ -14,13 +14,13 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar0 {
-padding-left:8;
 padding-right:8;
+padding-left:8;
 halign:LEFT;
 height:44.0;
 color:#8b8b8b;
-layout:hbox;
 font-size:20;
+layout:hbox;
 width:fill;
 font-family:default;
 valign:center;

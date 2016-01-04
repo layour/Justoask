@@ -62,6 +62,9 @@ try {
 		$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, username);
 		$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, password);
 		$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, autologin);
+		
+		//关闭页面
+		$view.close();
 	}
 
 

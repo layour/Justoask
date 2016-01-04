@@ -111,18 +111,22 @@ try {
 	function microphonecallback(sender, args) {
 		var askStr = $stringToJSON(args).text;
 		
+		//延时播报
+		setTimeout(askTimeout(askStr), 2000);
+	}
+	
+	function askTimeout(askStr){
 		//搜索答案
-		var result = "";
+		var result = "123";
 		
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
 			"text" : "您的问题是：" + askStr + result + "是否收藏这个问题？",
-			"callback" : "speechaskcallback()"
+			"callback" : "askcallback()"
 		}, false);
 	}
 	
-	function speechaskcallback(){
-		$alert(111);
+	function askcallback(){
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "favoritecallback()"
 		}, false);
@@ -136,6 +140,7 @@ try {
 			if(autoLogin == true){
 				//收藏一个问题
 				
+				$toast("收藏成功！");
 			} else {
 				//先登录
 				$view.open({
@@ -145,6 +150,7 @@ try {
 				
 				//再收藏一个问题
 				
+				$toast("收藏成功！");
 			}
 		}
 	}

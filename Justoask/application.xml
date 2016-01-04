@@ -17,8 +17,8 @@
   <view id="Login" ref="Login.dsl" include="true"/>  
   <view id="Register" ref="Register.dsl" include="true"/>  
   <view id="Share" ref="Share.dlg" include="true"/>  
-  <import id="weixin" type="mobile" ref="component"/>
-  <import id="SpeechService" type="mobile" ref="service"/>
+  <import id="weixin" type="mobile" ref="component"/>  
+  <import id="SpeechService" type="mobile" ref="service"/> 
 </application>
 <!--
 【屏幕显示方向】

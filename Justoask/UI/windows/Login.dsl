@@ -3,6 +3,7 @@
 <window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="Login" controller="LoginController" namespace="com.yonyou.justoask">
     <import ref="Login.css" type="css"/>
     <link type="text/css" href="sys/theme.css"/>
+    <script src="#{path.controller}/com.yonyou.justoask.GlobalResources.js" type="text/javascript"/>
     <div id="viewPage0">
         <div id="panel0">
             <label id="label0">问一下</label> 
