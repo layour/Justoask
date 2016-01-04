@@ -112,7 +112,7 @@ try {
 		var askStr = $stringToJSON(args).text;
 		
 		//延时播报
-		setTimeout(askTimeout(askStr), 2000);
+		setTimeout(askTimeout(askStr), 3000);
 	}
 	
 	function askTimeout(askStr){

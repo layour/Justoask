@@ -58,7 +58,7 @@ try {
 		 "image" : shareimage
 		 })*/
 		$wxshare.sendText({
-			"type" : "friend",
+			"type" : "friendsCircle",
 			"text" : sharedes
 		})
 
@@ -75,7 +75,7 @@ try {
 		 "image" : shareimage
 		 });*/
 		$wxshare.sendText({
-			"type" : "friendsCircle",
+			"type" : "friend",
 			"text" : sharedes
 		})
 
