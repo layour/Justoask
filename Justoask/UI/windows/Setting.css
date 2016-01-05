@@ -14,14 +14,14 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar0 {
-padding-right:8;
 padding-left:8;
+padding-right:8;
 halign:LEFT;
 height:44.0;
 color:#232323;
-background:#858586;
-font-size:20;
 layout:hbox;
+font-size:20;
+background:#858586;
 width:fill;
 font-family:default;
 valign:center;
@@ -54,12 +54,12 @@ margin-top:10;
 valign:TOP;
 }
  #panel5 {
-border-bottom-width:1;
 padding-left:5;
+border-bottom-width:1;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 border-bottom-color:#f1f4f5;
@@ -98,12 +98,12 @@ valign:center;
 background-image:icon_enter.png;
 }
  #panel0 {
-border-bottom-width:1;
 padding-left:5;
+border-bottom-width:1;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 border-bottom-color:#f1f4f5;
@@ -145,8 +145,8 @@ background-image:icon_enter.png;
 padding-left:5;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 }
@@ -194,12 +194,12 @@ margin-top:10;
 valign:TOP;
 }
  #panel2 {
-border-bottom-width:1;
 padding-left:5;
+border-bottom-width:1;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 border-bottom-color:#f1f4f5;
@@ -241,8 +241,8 @@ background-image:icon_enter.png;
 padding-left:5;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#dee8ed;
+layout:hbox;
 width:fill;
 valign:center;
 }

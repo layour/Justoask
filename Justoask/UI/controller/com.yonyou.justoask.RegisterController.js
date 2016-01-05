@@ -41,11 +41,12 @@ try {
 	}
 
 	function com$yonyou$justoask$RegisterController$userRegister(sender, args) {
-		var username = $id("textbox0").get("value");
-		var password = $id("textbox1").get("value");
-		var repassword = $id("textbox2").get("value");
+		$ctx.dataBind();
+		var userName = $ctx.getString("userName");
+		var password = $ctx.getString("password");
+		var repassword = $ctx.getString("repassword");
 		
-		if(com.yonyou.justoask.GlobalResources.isEmptyString(username)){
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(userName)){
 			$alert("用户名不能为空！");
 			return;
 		}
@@ -54,11 +55,37 @@ try {
 			return;
 		}
 		if(password != repassword){
-			$alert("用户名不能为空！");
+			$alert("用户名和密码不一致！");
 			return;
 		}
 		//注册用户
-		
+		//var url = $cache.read("url");
+		var url = "http://192.168.1.105:8080";
+		$service.get({
+			"url" : url + "/JustoaskServer/user/save?userName=" + userName + "&password=" + password,
+			"callback" : "registerCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
+	}
+	
+	function registerCallBack(){
+		var result = $ctx.param("result");//get和post的CallBack中获取返回结果都从result中获取
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
+			$alert("注册超时");
+			return;
+		}
+		result = $stringToJSON(result);//将字符串转换成JSON对象
+		if('0' == result.code){
+			//成功后写缓存
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID, result.user.userId);
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, result.user.userName);
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, result.user.password);
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, "true");
+			
+			$toast("注册成功");
+			//关闭页面
+			$view.close();
+		}
 	}
 
 

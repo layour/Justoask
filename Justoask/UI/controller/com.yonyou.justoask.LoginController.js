@@ -44,11 +44,12 @@ try {
 	}
 
 	function com$yonyou$justoask$LoginController$userLogin(sender, args) {
-		var username = $id("textbox0").get("value");
-		var password = $id("textbox1").get("value");
-		var autologin = $id("checkbox0").get("checked");
+		$ctx.dataBind();
+		var userName = $ctx.getString("userName");
+		var password = $ctx.getString("password");
+		var autoLogin = $ctx.getString("autoLogin");
 		
-		if(com.yonyou.justoask.GlobalResources.isEmptyString(username)){
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(userName)){
 			$alert("用户名不能为空！");
 			return;
 		}
@@ -57,14 +58,37 @@ try {
 			return;
 		}
 		//用户名密码登录
-		
-		//成功后写缓存
-		$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, username);
-		$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, password);
-		$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, autologin);
-		
-		//关闭页面
-		$view.close();
+		//var url = $cache.read("url");
+		var url = "http://192.168.1.105:8080";
+		$service.get({
+			"url" : url + "/JustoaskServer/user/login?userName=" + userName + "&password=" + password,
+			"callback" : "loginCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
+	}
+	
+	function loginCallBack(){
+		var result = $ctx.param("result");//get和post的CallBack中获取返回结果都从result中获取
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
+			$alert("登录超时");
+			return;
+		}
+		result = $stringToJSON(result);//将字符串转换成JSON对象
+		if('0' == result.code){
+			//成功后写缓存
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID, result.user.userId);
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, result.user.userName);
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, result.user.password);
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, $ctx.getString("autoLogin"));
+			
+			$toast("登录成功");
+			//关闭页面
+			$view.close();
+		} else if('1' == result.code){
+			$alert("无此用户");
+		} else if('2' == result.code){
+			$alert("用户名或密码错误");
+		}
 	}
 
 

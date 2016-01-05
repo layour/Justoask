@@ -13,6 +13,7 @@ try {
 	//声明User变量
 	com.yonyou.justoask.GlobalResources.userObj = new Object();
 	
+	com.yonyou.justoask.GlobalResources.userObj.USERID = "USERID";
 	com.yonyou.justoask.GlobalResources.userObj.USERNAME = "USERNAME";
 	com.yonyou.justoask.GlobalResources.userObj.PASSWORD = "PASSWORD";
 	com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN = "AUTOLOGIN";

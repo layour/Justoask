@@ -73,6 +73,9 @@ try {
 	function com$yonyou$justoask$HomeController$homeLoad(sender, args) {
 		$js.backConfirm();
 		
+		//初始化URL
+		$cache.write("url", "http://192.168.1.105:8080");
+		
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
 		//初始化分享

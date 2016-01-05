@@ -2,7 +2,7 @@
 
 <application id="Justoask" appname="问一下" versionCode="1" versionName="1" icon="app" theme="ios7" jsengine="v2.0" package="com.yonyou.justoask" language="zh_cn" autoCheckUpdate="false" push_enable="false" isLibrary="false"> 
   <permission id="internet"/>  
-  <start view="Home"/>  
+  <start view="Login"/>  
   <!--view id="demo" ref="demo.dsl"><extend screenOrientation="landscape|portrait|unspecified"/></view-->  
   <!--view id="demo" ref="demo.dsl"><extend windowSoftInputMode="stateUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|stateVisible|stateAlwaysVisible|adjustUnspecified|adjustResize|adjustPan"/></view-->  
   <view id="Home" ref="Home.dsl" include="true"> 

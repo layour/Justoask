@@ -11,29 +11,29 @@
         </navigatorbar>
         <div id="panel3">
             <div id="panel5" onclick="this.themechange()">
-                <label id="label4" bindfield="rowkey">主题切换</label>
+                <label id="label4">主题切换</label>
                 <label id="label5" bindfield="rowvalue">简约</label>
                 <label id="label6"/> 
             </div>
             <div id="panel0" onclick="this.speechchange()">
-                <label id="label1" bindfield="rowkey">语速设置</label>
+                <label id="label1">语速设置</label>
                 <label id="label2" bindfield="rowvalue">标准</label>
                 <label id="label3"/> 
             </div>
             <div id="panel1" onclick="this.typechange()">
-                <label id="label7" bindfield="rowkey">语音播报选择</label>
+                <label id="label7">语音播报选择</label>
                 <label id="label8" bindfield="rowvalue">青年女声</label>
                 <label id="label9"/> 
             </div> 
         </div>
         <div id="panel4">
             <div id="panel2" onclick="this.checkversion()">
-                <label id="label10" bindfield="rowkey">检测新版本</label>
+                <label id="label10">检测新版本</label>
                 <label id="label11" bindfield="rowvalue">V1.0</label>
                 <label id="label12"/> 
             </div>
             <div id="panel6" onclick="this.askoption()">
-                <label id="label13" bindfield="rowkey">意见反馈</label>
+                <label id="label13">意见反馈</label>
                 <label id="label15"/> 
             </div> 
         </div> 
