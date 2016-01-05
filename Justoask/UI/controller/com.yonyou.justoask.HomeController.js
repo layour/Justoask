@@ -119,14 +119,20 @@ try {
 		//搜索答案
 		var result = "123";
 		
+		//切换图片状态
+		microphoneChange();
+		
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + askStr + result + "是否收藏这个问题？",
+			"text" : "您的问题是：" + askStr + result + "是否收藏这个问题？请回答是或者否。",
 			"callback" : "askcallback()"
 		}, false);
 	}
 	
 	function askcallback(){
+		//切换图片状态
+		microphoneChange();
+		
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "favoritecallback()"
 		}, false);
@@ -134,10 +140,11 @@ try {
 	
 	function favoritecallback(sender, args){
 		var favoriteStr = $stringToJSON(args).text;
+		$alert(favoriteStr);
 		
 		if(favoriteStr.indexOf("是") > -1 || favoriteStr.indexOf("收藏") > -1){
 			var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
-			if(autoLogin == true){
+			if(autoLogin == "true"){
 				//收藏一个问题
 				
 				$toast("收藏成功！");
@@ -153,6 +160,9 @@ try {
 				$toast("收藏成功！");
 			}
 		}
+		
+		//切换图片状态
+		microphoneChange();
 	}
 
 	function com$yonyou$justoask$HomeController$button2_onclick(sender, args) {
