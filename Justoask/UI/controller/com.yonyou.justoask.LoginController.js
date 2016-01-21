@@ -75,6 +75,7 @@ try {
 		result = $stringToJSON(result);//将字符串转换成JSON对象
 		if('0' == result.code){
 			//成功后写缓存
+			$alert("result.user.userId:" + result.user.userId)
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID, result.user.userId);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, result.user.userName);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, result.user.password);
@@ -82,11 +83,13 @@ try {
 			
 			$toast("登录成功");
 			//关闭页面
-			$view.close();
+			$view.closeWithCallBack({ })
 		} else if('1' == result.code){
 			$alert("无此用户");
 		} else if('2' == result.code){
 			$alert("用户名或密码错误");
+		} else {
+			$alert("登录失败");
 		}
 	}
 

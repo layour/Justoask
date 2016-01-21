@@ -72,20 +72,23 @@ try {
 
 	function com$yonyou$justoask$HomeController$homeLoad(sender, args) {
 		$js.backConfirm();
-		
+
 		//初始化URL
-		$cache.write("url", "http://10.1.209.117:8080");
-		
+		$cache.write("url", "http://10.2.112.14:8080");
+
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
 		//初始化分享
-		$wxshare.init({"appid" : "wx9aaa6c47f70709e3"});//签名a74ab91cf78a537e8a0266875b1d340d
-		
+		$wxshare.init({
+			"appid" : "wx9aaa6c47f70709e3"
+		});
+		//签名a74ab91cf78a537e8a0266875b1d340d
+
 		//延时提示
 		setTimeout(initSpeech, 1000);
 	}
-	
-	function initSpeech(){
+
+	function initSpeech() {
 		//语音提示
 		$service.call("SpeechService.openStringBackSpeech", {
 			"text" : "您有什么问题吗？"
@@ -113,71 +116,113 @@ try {
 
 	function microphonecallback(sender, args) {
 		var keyword = $stringToJSON(args).text;
+		$ctx.put("keyword", keyword);
 		//问题搜索
 		var url = $cache.read("url");
 		$service.post({
 			"url" : url + "/JustoaskServer/problem/search",
-			"keyword" : keyword,
+			"data" : {
+				"keyword" : keyword
+			},
 			"callback" : "searchCallBack()",
 			"timeout" : "5"//可选参数，超时时间，单位为秒
 		});
 	}
-	
-	function searchCallBack(){
+
+	function searchCallBack() {
 		//切换图片状态
 		microphoneChange();
-		
+
 		var result = $ctx.param("result");
-		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
+		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
 			$alert("搜索超时");
 			return;
 		}
-		result = $stringToJSON(result);//将字符串转换成JSON对象
-		
-		$alert(result.keyword);
-		$alert(result.result);
-		
+		result = $stringToJSON(result);
+		//将字符串转换成JSON对象
+
+		$alert(result);
+		var keyword = $ctx.getString("keyword");
+		$ctx.put("searchResult", result.result);
+
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + result.keyword + result.result + "是否收藏这个问题？请回答是或者否。",
+			"text" : "您的问题是：" + keyword + result.result + "是否收藏这个问题？请回答是或者否。",
 			"callback" : "askcallback()"
 		}, false);
 	}
-	
-	function askcallback(){
+
+	function askcallback() {
 		//切换图片状态
 		microphoneChange();
-		
+
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "favoritecallback()"
 		}, false);
 	}
-	
-	function favoritecallback(sender, args){
+
+	function favoritecallback(sender, args) {
 		var favoriteStr = $stringToJSON(args).text;
-		$alert(favoriteStr);
 		
-		if(favoriteStr.indexOf("是") > -1 || favoriteStr.indexOf("收藏") > -1){
+		$alert(favoriteStr);
+
+		//切换图片状态
+		microphoneChange();
+
+		if (favoriteStr.indexOf("是") > -1 || favoriteStr.indexOf("收藏") > -1) {
 			var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
-			if(autoLogin == "true"){
+			$alert(autoLogin);
+			if (autoLogin == "true") {
+				var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
 				//收藏一个问题
-				
-				$toast("收藏成功！");
+				var url = $cache.read("url");
+				$service.post({
+					"url" : url + "/JustoaskServer/collect/save",
+					"data" : {
+						"userId" : userId,
+						"problem" : $ctx.getString("keyword"),
+						"answer" : $ctx.getString("searchResult")
+					},
+					"callback" : "collectCallBack()",
+					"timeout" : "5"//可选参数，超时时间，单位为秒
+				});
 			} else {
 				//先登录
 				$view.open({
 					"viewid" : "com.yonyou.justoask.Login",//目标页面（首字母大写）全名，
-					"isKeep" : "true"
+					"isKeep" : "true",//保留当前页面不关闭
+					"callback":"openLogincallback()"//回调的JS方法
 				});
-				
-				//再收藏一个问题
-				
-				$toast("收藏成功！");
 			}
 		}
-		
-		//切换图片状态
-		microphoneChange();
+	}
+	
+	function openLogincallback(){
+		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
+		//再收藏一个问题
+		var url = $cache.read("url");
+		$service.post({
+			"url" : url + "/JustoaskServer/collect/save",
+			"data" : {
+				"userId" : userId,
+				"problem" : $ctx.getString("keyword"),
+				"answer" : $ctx.getString("searchResult")
+			},
+			"callback" : "collectCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
+	}
+	
+	function collectCallBack(){
+		var result = $ctx.param("result");
+		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
+			$alert("收藏超时");
+			return;
+		}
+		result = $stringToJSON(result);
+		if(result.code == 0){
+			$toast("收藏成功！");
+		}
 	}
 
 	function com$yonyou$justoask$HomeController$button2_onclick(sender, args) {
@@ -189,15 +234,15 @@ try {
 
 	function com$yonyou$justoask$HomeController$openShare(sender, args) {
 		$window.showModalDialog({
-		    "dialogId" : "com.yonyou.justoask.Share",//Dialog的唯一标识（包名+ID），ID要求首字母大写
-		    "arguments" : {},//arguments为传递至Dialog的自定义JSON参数
-		    "features" : {
-		        //"dialogLeft" : "100",//Dialog距离屏幕左侧的位置
-		        //"dialogTop" : "150",//Dialog距离屏幕顶端的位置
-		        "dialogWidth" : "250",
-		        "dialogHeight" : "180"
-		    },
-		    "animation-type" : "center"//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
+			"dialogId" : "com.yonyou.justoask.Share", //Dialog的唯一标识（包名+ID），ID要求首字母大写
+			"arguments" : {}, //arguments为传递至Dialog的自定义JSON参数
+			"features" : {
+				//"dialogLeft" : "100",//Dialog距离屏幕左侧的位置
+				//"dialogTop" : "150",//Dialog距离屏幕顶端的位置
+				"dialogWidth" : "250",
+				"dialogHeight" : "180"
+			},
+			"animation-type" : "center"//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
 		});
 	}
 

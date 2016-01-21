@@ -37,22 +37,31 @@ try {
 	}
 
 	function com$yonyou$justoask$FavoriteController$loadList(sender, args) {
-		var json = {
-			list : [{
-				id : "1",
-				context : "测试1"
-			}, {
-				id : "2",
-				context : "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试3"
-			}, {
-				id : "3",
-				context : "测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试3"
-			}, {
-				id : "4",
-				context : "测试测试测试测试测试测试测试测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试3"
-			}]
+		var userId = $cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID);
+		//收藏一个问题
+		var url = $cache.read("url");
+		$service.post({
+			"url" : url + "/JustoaskServer/collect/list",
+			"data" : {
+				"page.size" : 20,
+				"search_userId" : userId
+			},
+			"callback" : "listCollectCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
+	}
+	
+	function listCollectCallBack(){
+		var result = $ctx.param("result");
+		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
+			$alert("查询超时");
+			return;
 		}
-		$ctx.push(json);
+		result = $stringToJSON(result);
+		$alert(result);
+		if(result.code == 0){
+			$ctx.push(result.rows);
+		}
 	}
 
 	function com$yonyou$justoask$FavoriteController$closeFavorite(sender, args) {
