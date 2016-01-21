@@ -74,7 +74,7 @@ try {
 		$js.backConfirm();
 		
 		//初始化URL
-		$cache.write("url", "http://192.168.1.105:8080");
+		$cache.write("url", "http://10.1.209.117:8080");
 		
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
@@ -112,22 +112,34 @@ try {
 	}
 
 	function microphonecallback(sender, args) {
-		var askStr = $stringToJSON(args).text;
-		
-		//延时播报
-		setTimeout(askTimeout(askStr), 3000);
+		var keyword = $stringToJSON(args).text;
+		//问题搜索
+		var url = $cache.read("url");
+		$service.post({
+			"url" : url + "/JustoaskServer/problem/search",
+			"keyword" : keyword,
+			"callback" : "searchCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
 	}
 	
-	function askTimeout(askStr){
-		//搜索答案
-		var result = "123";
-		
+	function searchCallBack(){
 		//切换图片状态
 		microphoneChange();
 		
+		var result = $ctx.param("result");
+		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
+			$alert("搜索超时");
+			return;
+		}
+		result = $stringToJSON(result);//将字符串转换成JSON对象
+		
+		$alert(result.keyword);
+		$alert(result.result);
+		
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + askStr + result + "是否收藏这个问题？请回答是或者否。",
+			"text" : "您的问题是：" + result.keyword + result.result + "是否收藏这个问题？请回答是或者否。",
 			"callback" : "askcallback()"
 		}, false);
 	}

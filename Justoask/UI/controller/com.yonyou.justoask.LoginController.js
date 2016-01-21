@@ -58,8 +58,7 @@ try {
 			return;
 		}
 		//用户名密码登录
-		//var url = $cache.read("url");
-		var url = "http://192.168.1.105:8080";
+		var url = $cache.read("url");
 		$service.get({
 			"url" : url + "/JustoaskServer/user/login?userName=" + userName + "&password=" + password,
 			"callback" : "loginCallBack()",

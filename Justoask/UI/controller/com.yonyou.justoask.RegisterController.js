@@ -59,8 +59,7 @@ try {
 			return;
 		}
 		//注册用户
-		//var url = $cache.read("url");
-		var url = "http://192.168.1.105:8080";
+		var url = $cache.read("url");
 		$service.get({
 			"url" : url + "/JustoaskServer/user/save?userName=" + userName + "&password=" + password,
 			"callback" : "registerCallBack()",
