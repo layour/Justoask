@@ -74,7 +74,7 @@ try {
 		$js.backConfirm();
 
 		//初始化URL
-		$cache.write("url", "http://10.2.112.14:8080");
+		$cache.write("url", "http://192.168.1.109:8080");
 
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
@@ -103,15 +103,6 @@ try {
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "microphonecallback()"
 		}, false);
-	}
-
-	function microphoneChange() {
-		var imageSrc = $id("image0").get("src");
-		if (imageSrc == "microphone.png") {
-			$id("image0").set("src", "microphone_active.gif");
-		} else {
-			$id("image0").set("src", "microphone.png");
-		}
 	}
 
 	function microphonecallback(sender, args) {
@@ -147,89 +138,8 @@ try {
 
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + keyword + result.result + "是否收藏这个问题？请回答是或者否。",
-			"callback" : "askcallback()"
+			"text" : "您的问题是：" + keyword + result.result
 		}, false);
-	}
-
-	function askcallback() {
-		//切换图片状态
-		microphoneChange();
-
-		$service.call("SpeechService.openSpeechBackString", {
-			"callback" : "favoritecallback()"
-		}, false);
-	}
-
-	function favoritecallback(sender, args) {
-		var favoriteStr = $stringToJSON(args).text;
-		
-		$alert(favoriteStr);
-
-		//切换图片状态
-		microphoneChange();
-
-		if (favoriteStr.indexOf("是") > -1 || favoriteStr.indexOf("收藏") > -1) {
-			var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
-			$alert(autoLogin);
-			if (autoLogin == "true") {
-				var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
-				//收藏一个问题
-				var url = $cache.read("url");
-				$service.post({
-					"url" : url + "/JustoaskServer/collect/save",
-					"data" : {
-						"userId" : userId,
-						"problem" : $ctx.getString("keyword"),
-						"answer" : $ctx.getString("searchResult")
-					},
-					"callback" : "collectCallBack()",
-					"timeout" : "5"//可选参数，超时时间，单位为秒
-				});
-			} else {
-				//先登录
-				$view.open({
-					"viewid" : "com.yonyou.justoask.Login",//目标页面（首字母大写）全名，
-					"isKeep" : "true",//保留当前页面不关闭
-					"callback":"openLogincallback()"//回调的JS方法
-				});
-			}
-		}
-	}
-	
-	function openLogincallback(){
-		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
-		//再收藏一个问题
-		var url = $cache.read("url");
-		$service.post({
-			"url" : url + "/JustoaskServer/collect/save",
-			"data" : {
-				"userId" : userId,
-				"problem" : $ctx.getString("keyword"),
-				"answer" : $ctx.getString("searchResult")
-			},
-			"callback" : "collectCallBack()",
-			"timeout" : "5"//可选参数，超时时间，单位为秒
-		});
-	}
-	
-	function collectCallBack(){
-		var result = $ctx.param("result");
-		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
-			$alert("收藏超时");
-			return;
-		}
-		result = $stringToJSON(result);
-		if(result.code == 0){
-			$toast("收藏成功！");
-		}
-	}
-
-	function com$yonyou$justoask$HomeController$button2_onclick(sender, args) {
-		$view.open({
-			"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
-			"isKeep" : "true"
-		});
 	}
 
 	function com$yonyou$justoask$HomeController$openShare(sender, args) {
@@ -246,10 +156,18 @@ try {
 		});
 	}
 
+	function microphoneChange() {
+		var imageSrc = $id("image0").get("src");
+		if (imageSrc == "microphone.png") {
+			$id("image0").set("src", "microphone_active.gif");
+		} else {
+			$id("image0").set("src", "microphone.png");
+		}
+	}
+
 
 	com.yonyou.justoask.HomeController.prototype = {
 		openShare : com$yonyou$justoask$HomeController$openShare,
-		button2_onclick : com$yonyou$justoask$HomeController$button2_onclick,
 		microphone : com$yonyou$justoask$HomeController$microphone,
 		homeLoad : com$yonyou$justoask$HomeController$homeLoad,
 		openPopMenu : com$yonyou$justoask$HomeController$openPopMenu,
