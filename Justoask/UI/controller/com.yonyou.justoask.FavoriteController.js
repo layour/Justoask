@@ -38,13 +38,13 @@ try {
 
 	function com$yonyou$justoask$FavoriteController$loadList(sender, args) {
 		var userId = $cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID);
-		//收藏一个问题
+		//查询收藏列表
 		var url = $cache.read("url");
 		$service.post({
 			"url" : url + "/JustoaskServer/collect/list",
 			"data" : {
 				"page.size" : 20,
-				"search_userId" : userId
+				"search_userId" : "123"
 			},
 			"callback" : "listCollectCallBack()",
 			"timeout" : "5"//可选参数，超时时间，单位为秒
@@ -58,10 +58,16 @@ try {
 			return;
 		}
 		result = $stringToJSON(result);
-		$alert(result);
-		if(result.code == 0){
-			$ctx.push(result.rows);
-		}
+		var list = [];
+		for (var i=0; i < result.rows.length; i++) {
+			var itemObj = {
+				"problemDesc" : result.rows[i].problem.problemDesc,
+				"answer" : result.rows[i].problem.answer,
+				"collectTime" : result.rows[i].collectTime 
+			}
+		  	list[i] = itemObj;
+		};
+		$ctx.push({"list" : list});
 	}
 
 	function com$yonyou$justoask$FavoriteController$closeFavorite(sender, args) {
@@ -70,7 +76,8 @@ try {
 
 	function com$yonyou$justoask$FavoriteController$listitemclick(sender, args) {
 		var rowData = $id("listviewdefine0").get("row");
-		var context = $stringToJSON(rowData).context;
+		rowData = $stringToJSON(rowData);
+		var context = rowData.problemDesc + rowData.answer;
 		$service.call("SpeechService.openStringBackSpeech", {
 			"text" : context
 		}, false);

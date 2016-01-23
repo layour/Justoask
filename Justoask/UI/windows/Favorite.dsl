@@ -11,7 +11,9 @@
         </navigatorbar>
         <listView id="listviewdefine0" bindfield="list" onload="this.loadList()" onitemclick="this.listitemclick()" collapsed="true">
             <div id="panel0">
-                <label id="label1" bindfield="context" type="multiline">收藏内容</label> 
+                <label id="label1" bindfield="problemDesc" type="multiline">收藏问题</label>
+                <label id="label4" bindfield="answer" type="multiline">收藏答案</label>
+                <label id="label2" bindfield="collectTime" type="multiline">收藏时间</label> 
             </div> 
         </listView> 
     </div> 

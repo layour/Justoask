@@ -14,14 +14,14 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar0 {
-padding-left:8;
 padding-right:8;
+padding-left:8;
 halign:LEFT;
 height:44.0;
 color:#232323;
-font-size:20;
-layout:hbox;
 background:#858586;
+layout:hbox;
+font-size:20;
 width:fill;
 font-family:default;
 valign:center;
@@ -61,22 +61,49 @@ valign:TOP;
 }
  #panel0 {
 border-bottom-width:1;
-halign:LEFT;
-height:60.0;
-layout:hbox;
+halign:left;
+height:100;
 background:#dee8ed;
+layout:vbox;
 width:fill;
-valign:center;
+valign:CENTER;
 border-bottom-color:#f1f4f5;
 }
  #label1 {
 margin-right:10;
 halign:left;
-height:fill;
-color:#555555;
-font-size:16;
+height:wrap;
+color:#6f99bd;
+heightWrap:25.0;
+font-size:15;
 width:fill;
 margin-left:10;
+font-family:default;
+margin-top:5;
+valign:center;
+}
+ #label4 {
+margin-right:10;
+halign:left;
+height:0;
+weight:1;
+color:#555555;
+font-size:14;
+width:fill;
+margin-left:10;
+font-family:default;
+valign:top;
+}
+ #label2 {
+margin-right:10;
+halign:right;
+height:wrap;
+color:#c0c0c0;
+heightWrap:20.0;
+font-size:12;
+width:fill;
+margin-left:10;
+margin-bottom:5;
 font-family:default;
 valign:center;
 }
