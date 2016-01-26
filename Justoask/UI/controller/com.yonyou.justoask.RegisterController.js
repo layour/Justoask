@@ -70,7 +70,7 @@ try {
 	function registerCallBack(){
 		var result = $ctx.param("result");//get和post的CallBack中获取返回结果都从result中获取
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
-			$alert("注册超时");
+			$alert("注册超时,检查网络！");
 			return;
 		}
 		result = $stringToJSON(result);//将字符串转换成JSON对象

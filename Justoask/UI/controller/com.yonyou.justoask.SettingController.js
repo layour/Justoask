@@ -140,11 +140,11 @@ try {
 	}
 
 	function com$yonyou$justoask$SettingController$checkversion(sender, args) {
-		$alert("检测新版本");
+		$alert("检测新版本！");
 	}
 
 	function com$yonyou$justoask$SettingController$askoption(sender, args) {
-		$alert("意见反馈");
+		$alert("意见反馈！");
 	}
 
 	function com$yonyou$justoask$SettingController$loadsetting(sender, args) {

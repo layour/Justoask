@@ -69,27 +69,26 @@ try {
 	function loginCallBack(){
 		var result = $ctx.param("result");//get和post的CallBack中获取返回结果都从result中获取
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
-			$alert("登录超时");
+			$alert("登录超时,检查网络！");
 			return;
 		}
 		result = $stringToJSON(result);//将字符串转换成JSON对象
 		if('0' == result.code){
 			//成功后写缓存
-			$alert("result.user.userId:" + result.user.userId)
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID, result.user.userId);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, result.user.userName);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, result.user.password);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, $ctx.getString("autoLogin"));
 			
-			$toast("登录成功");
+			$toast("登录成功！");
 			//关闭页面
 			$view.closeWithCallBack({ })
 		} else if('1' == result.code){
-			$alert("无此用户");
+			$alert("无此用户！");
 		} else if('2' == result.code){
-			$alert("用户名或密码错误");
+			$alert("用户名或密码错误！");
 		} else {
-			$alert("登录失败");
+			$alert("登录失败！");
 		}
 	}
 

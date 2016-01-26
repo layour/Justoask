@@ -42,7 +42,7 @@ try {
 			"dropDownListWidth" : "120",
 			"background" : "#858586",
 			"panelstyle" : "round-div",
-			"font-size" : "16",
+			"font-size" : "15",
 			"color" : "#f1f4f5",
 			"split-color" : "#f1f4f5",
 			"showtype" : "right",
@@ -74,7 +74,7 @@ try {
 		$js.backConfirm();
 
 		//初始化URL
-		$cache.write("url", "http://192.168.1.109:8080");
+		$cache.write("url", "http://115.28.91.199:8080");
 
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
@@ -126,13 +126,12 @@ try {
 
 		var result = $ctx.param("result");
 		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
-			$alert("搜索超时");
+			$alert("搜索超时,检查网络！");
 			return;
 		}
 		result = $stringToJSON(result);
 		//将字符串转换成JSON对象
 
-		$alert(result);
 		var keyword = $ctx.getString("keyword");
 		$ctx.put("searchResult", result.result);
 

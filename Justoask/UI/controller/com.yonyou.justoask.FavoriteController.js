@@ -54,7 +54,7 @@ try {
 	function listCollectCallBack(){
 		var result = $ctx.param("result");
 		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
-			$alert("查询超时");
+			$alert("查询超时,检查网络！");
 			return;
 		}
 		result = $stringToJSON(result);
