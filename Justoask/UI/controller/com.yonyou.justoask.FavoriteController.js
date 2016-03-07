@@ -79,7 +79,9 @@ try {
 		rowData = $stringToJSON(rowData);
 		var context = rowData.problemDesc + rowData.answer;
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : context
+			"text" : context,
+			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
+			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH)
 		}, false);
 	}
 

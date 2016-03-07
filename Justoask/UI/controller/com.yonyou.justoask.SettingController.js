@@ -65,10 +65,11 @@ try {
 
 	function themechangeok() {
 		var changeData = $ctx.getString("theme");
-		var changeValue = $stringToJSON(changeData).content;
+		var changeValue = $stringToJSON(changeData).value;
+		var changeContent = $stringToJSON(changeData).content;
 		var oldValue = $id("label5").get("value");
 		if (oldValue != changeValue) {
-			$id("label5").set("value", changeValue);
+			$id("label5").set("value", changeContent);
 			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.THEME, changeValue);
 		}
 	}
@@ -81,13 +82,13 @@ try {
 			"datasource" : {
 				picker : [{
 					select : [{
-						value : 1,
+						value : 75,
 						content : "快速"
 					}, {
-						value : 2,
+						value : 50,
 						content : "标准"
 					}, {
-						value : 3,
+						value : 25,
 						content : "慢速"
 					}]
 				}]
@@ -98,10 +99,11 @@ try {
 
 	function speechchangeok() {
 		var changeData = $ctx.getString("speech");
-		var changeValue = $stringToJSON(changeData).content;
+		var changeValue = $stringToJSON(changeData).value;
+		var changeContent = $stringToJSON(changeData).content;
 		var oldValue = $id("label2").get("value");
 		if (oldValue != changeValue) {
-			$id("label2").set("value", changeValue);
+			$id("label2").set("value", changeContent);
 			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.SPEECH, changeValue);
 		}
 	}
@@ -114,14 +116,17 @@ try {
 			"datasource" : {
 				picker : [{
 					select : [{
-						value : 1,
+						value : "xiaoyan",
 						content : "青年女声"
 					}, {
-						value : 2,
+						value : "xiaoyu",
 						content : "青年男声"
 					}, {
-						value : 3,
-						content : "儿童声"
+						value : "vinn",
+						content : "儿童女声"
+					}, {
+						value : "vixx",
+						content : "儿童男声"
 					}]
 				}]
 			},
@@ -131,10 +136,11 @@ try {
 
 	function typechangeok() {
 		var changeData = $ctx.getString("type");
-		var changeValue = $stringToJSON(changeData).content;
+		var changeValue = $stringToJSON(changeData).value;
+		var changeContent = $stringToJSON(changeData).content;
 		var oldValue = $id("label8").get("value");
 		if (oldValue != changeValue) {
-			$id("label8").set("value", changeValue);
+			$id("label8").set("value", changeContent);
 			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.TYPE, changeValue);
 		}
 	}
@@ -151,14 +157,28 @@ try {
 		var theme = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.THEME);
 		var speech = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH);
 		var type = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE);
-		if(theme){
-			$id("label5").set("value", theme);
+		if(theme == "1"){
+			$id("label5").set("value", "简约");
+		} else if(theme == "2"){
+			$id("label5").set("value", "商务");
+		} else if(theme == "3"){
+			$id("label5").set("value", "卡通");
 		}
-		if(speech){
-			$id("label2").set("value", speech);
+		if(speech == "75"){
+			$id("label2").set("value", "快速");
+		} else if(speech == "50"){
+			$id("label2").set("value", "标准");
+		} else if(speech == "25"){
+			$id("label2").set("value", "慢速");
 		}
-		if(type){
-			$id("label8").set("value", type);
+		if(type == "xiaoyan"){
+			$id("label8").set("value", "青年女声");
+		} else if(type == "xiaoyu"){
+			$id("label8").set("value", "青年男声");
+		} else if(type == "vinn"){
+			$id("label8").set("value", "儿童女声");
+		} else if(type == "vixx"){
+			$id("label8").set("value", "儿童男声");
 		}
 	}
 

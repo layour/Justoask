@@ -91,14 +91,13 @@ try {
 	function initSpeech() {
 		//语音提示
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您有什么问题吗？"
+			"text" : "您有什么问题吗？",
+			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
+			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH)
 		}, false);
 	}
 
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
-		//切换图片状态
-		microphoneChange();
-
 		//说话
 		$service.call("SpeechService.openSpeechBackString", {
 			"callback" : "microphonecallback()"
@@ -121,9 +120,6 @@ try {
 	}
 
 	function searchCallBack() {
-		//切换图片状态
-		microphoneChange();
-
 		var result = $ctx.param("result");
 		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
 			$alert("搜索超时,检查网络！");
@@ -137,7 +133,9 @@ try {
 
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + keyword + result.result
+			"text" : "您的问题是：" + keyword + result.result,
+			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
+			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH)
 		}, false);
 	}
 
@@ -153,15 +151,6 @@ try {
 			},
 			"animation-type" : "center"//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
 		});
-	}
-
-	function microphoneChange() {
-		var imageSrc = $id("image0").get("src");
-		if (imageSrc == "microphone.png") {
-			$id("image0").set("src", "microphone_active.gif");
-		} else {
-			$id("image0").set("src", "microphone.png");
-		}
 	}
 
 
