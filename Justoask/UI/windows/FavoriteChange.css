@@ -1,0 +1,68 @@
+ #FavoriteChange {
+halign:center;
+height:fill;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+border-radius:5;
+layout:vbox;
+background:#F7F8F8;
+width:fill;
+valign:TOP;
+}
+ #panel0 {
+border-bottom-width:1;
+halign:CENTER;
+height:44;
+layout:hbox;
+width:fill;
+valign:center;
+border-bottom-color:#c0c0c0;
+}
+ #label0 {
+halign:center;
+height:wrap;
+widthWrap:152.0;
+color:#8b8b8b;
+heightWrap:26.0;
+font-size:18;
+width:wrap;
+font-family:default;
+valign:center;
+}
+ #panel1 {
+halign:CENTER;
+height:0;
+weight:1;
+layout:hbox;
+width:fill;
+valign:center;
+}
+ #imagebutton0 {
+width:80;
+icon-width:44;
+font-pressed-color:#6f99bd;
+margin-right:10;
+icon-height:44;
+height:80;
+color:#8b8b8b;
+font-size:12;
+icon-background-image:icon_star_touch.png;
+icon-text-spacing:5;
+}
+ #imagebutton1 {
+width:80;
+icon-width:44;
+font-pressed-color:#6f99bd;
+icon-height:44;
+height:80;
+color:#8b8b8b;
+font-size:12;
+margin-left:10;
+icon-background-image:icon_star.png;
+icon-text-spacing:5;
+}

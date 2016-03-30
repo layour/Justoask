@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="FavoriteChange" canvaswidth="250" canvasheight="180" orientation="horizontal" controller="FavoriteChangeController" type="dialog" namespace="com.yonyou.justoask">
+    <import ref="FavoriteChange.css" type="css"/>
+    <link type="text/css" href="sys/theme.css"/>
+    <div id="viewPage0">
+        <div id="panel0">
+            <label id="label0">收藏这个问题吗？</label> 
+        </div>
+        <div id="panel1">
+            <input id="imagebutton0" imagebuttontype="icon" value="微信好友" istogglebutton="false" class="imagebuttonclass" onclick="this.yesFavorite()" type="imagebutton" checked="false"/>
+            <input id="imagebutton1" imagebuttontype="icon" value="微信朋友圈" istogglebutton="false" class="imagebuttonclass" onclick="this.noFavorite()" type="imagebutton" checked="false"/> 
+        </div> 
+    </div> 
+</window>
