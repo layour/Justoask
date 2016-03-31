@@ -116,7 +116,6 @@ try {
 		if(CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS){
 			keyword = keyword.result;
 		}
-		$alert(keyword);
 		$ctx.put("keyword", keyword);
 		//百度问题搜索
 		/*var url = $cache.read("url");
@@ -164,20 +163,6 @@ try {
 	}
 	
 	function speechCallback(){
-		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
-		if (autoLogin == "true") {
-			openLogincallback();
-		} else {
-			//先登录
-			$view.open({
-				"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
-				"isKeep" : "true", //保留当前页面不关闭
-				"callback" : "openLogincallback()"//回调的JS方法
-			});
-		}
-	}
-	
-	function openLogincallback() {
 		$window.showModalDialog({
 			"dialogId" : "com.yonyou.justoask.FavoriteChange", //Dialog的唯一标识（包名+ID），ID要求首字母大写
 			"arguments" : {
@@ -199,25 +184,39 @@ try {
 		var changeParam = $param.getString("changeResult");
 		
 		if(changeParam == "yes") {
-			var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
-			//再收藏一个问题
-			var url = $cache.read("url");
-			$service.post({
-				"url" : url + "/JustoaskServer/collect/save",
-				"data" : {
-					"userId" : userId,
-					"problemDesc" : $ctx.getString("keyword"),
-					"answer" : $ctx.getString("searchResult")
-				},
-				"callback" : "collectCallBack()",
-				"timeout" : "5"//可选参数，超时时间，单位为秒
-			});
-			/*$service.get({
-				"url" : url + "/JustoaskServer/collect/save?userId=" + userId + "&problemDesc=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"),
-				"callback" : "collectCallBack()",
-				"timeout" : "5"//可选参数，超时时间，单位为秒
-			})*/
+			var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
+			if (autoLogin == "true") {
+				openLogincallback();
+			} else {
+				//先登录
+				$view.open({
+					"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
+					"isKeep" : "true", //保留当前页面不关闭
+					"callback" : "openLogincallback()"//回调的JS方法
+				});
+			}
 		}
+	}
+	
+	function openLogincallback() {
+		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
+		//再收藏一个问题
+		var url = $cache.read("url");
+		$service.post({
+			"url" : url + "/JustoaskServer/collect/save",
+			"data" : {
+				"userId" : userId,
+				"problemDesc" : $ctx.getString("keyword"),
+				"answer" : $ctx.getString("searchResult")
+			},
+			"callback" : "collectCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
+		/*$service.get({
+			"url" : url + "/JustoaskServer/collect/save?userId=" + userId + "&problemDesc=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"),
+			"callback" : "collectCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		})*/
 	}
 
 	function collectCallBack() {
