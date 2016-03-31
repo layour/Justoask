@@ -46,7 +46,6 @@ try {
 	function com$yonyou$justoask$LoginController$userLogin(sender, args) {
 		var userName = $id("textbox0").get("value");
 		var password = $id("textbox1").get("value");
-		var autoLogin = $id("checkbox0").get("checked");
 		
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(userName)){
 			$alert("用户名不能为空！");
@@ -66,6 +65,8 @@ try {
 	}
 	
 	function loginCallBack(){
+		var autoLogin = $id("checkbox0").get("checked");
+		
 		var result = $ctx.param("result");//get和post的CallBack中获取返回结果都从result中获取
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){
 			$alert("登录超时,检查网络！");
@@ -77,7 +78,7 @@ try {
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID, result.user.userId);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, result.user.userName);
 			$cache.write(com.yonyou.justoask.GlobalResources.userObj.PASSWORD, result.user.password);
-			$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, $ctx.getString("autoLogin"));
+			$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, autoLogin);
 			
 			$toast("登录成功！");
 			//关闭页面
