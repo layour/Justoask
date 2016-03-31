@@ -44,25 +44,25 @@ valign:center;
 }
  #imagebutton0 {
 width:80;
-icon-width:44;
+icon-width:80;
 font-pressed-color:#6f99bd;
 margin-right:10;
-icon-height:44;
+icon-height:80;
 height:80;
 color:#8b8b8b;
 font-size:12;
-icon-background-image:icon_star_touch.png;
+icon-background-image:like.png;
 icon-text-spacing:5;
 }
  #imagebutton1 {
 width:80;
-icon-width:44;
+icon-width:80;
 font-pressed-color:#6f99bd;
-icon-height:44;
+icon-height:80;
 height:80;
 color:#8b8b8b;
 font-size:12;
 margin-left:10;
-icon-background-image:icon_star.png;
+icon-background-image:dislike.png;
 icon-text-spacing:5;
 }
