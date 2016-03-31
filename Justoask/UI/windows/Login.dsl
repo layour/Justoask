@@ -11,16 +11,16 @@
         <div id="panel1">
             <div id="panel2">
                 <image id="image0" scaletype="fitcenter" src="user.png"/>
-                <input bindfield="userName" id="textbox0" maxlength="256" placeholder="用户名" value="user01" type="text"/> 
+                <input bindfield="" id="textbox0" maxlength="256" placeholder="用户名" value="user01" type="text"/> 
             </div>
             <div id="panel3">
                 <image id="image1" scaletype="fitcenter" src="password.png"/>
-                <input bindfield="password" id="textbox1" maxlength="256" placeholder="密码" value="a1234567" type="password"/> 
+                <input bindfield="" id="textbox1" maxlength="256" placeholder="密码" value="a1234567" type="password"/> 
             </div> 
         </div>
         <div id="panel4">
             <label id="label1">自动登录</label>
-            <input id="checkbox0" bindfield="autoLogin" type="checkbox" checked="checked"/>
+            <input id="checkbox0" bindfield="" type="checkbox" checked="checked"/>
             <label id="label2" onclick="this.openregister()">立即注册</label> 
         </div>
         <input id="button0" value="登录" class="textbtnclass" onclick="this.userLogin()" type="button"/>

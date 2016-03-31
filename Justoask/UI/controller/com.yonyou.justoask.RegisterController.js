@@ -41,10 +41,9 @@ try {
 	}
 
 	function com$yonyou$justoask$RegisterController$userRegister(sender, args) {
-		$ctx.dataBind();
-		var userName = $ctx.getString("userName");
-		var password = $ctx.getString("password");
-		var repassword = $ctx.getString("repassword");
+		var userName = $id("textbox0").get("value");
+		var password = $id("textbox1").get("value");
+		var repassword = $id("textbox2").get("value");
 		
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(userName)){
 			$alert("用户名不能为空！");

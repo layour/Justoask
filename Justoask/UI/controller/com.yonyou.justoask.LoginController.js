@@ -44,10 +44,9 @@ try {
 	}
 
 	function com$yonyou$justoask$LoginController$userLogin(sender, args) {
-		$ctx.dataBind();
-		var userName = $ctx.getString("userName");
-		var password = $ctx.getString("password");
-		var autoLogin = $ctx.getString("autoLogin");
+		var userName = $id("textbox0").get("value");
+		var password = $id("textbox1").get("value");
+		var autoLogin = $id("checkbox0").get("checked");
 		
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(userName)){
 			$alert("用户名不能为空！");

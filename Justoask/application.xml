@@ -14,8 +14,12 @@
   <view id="Favorite" ref="Favorite.dsl" include="true"> 
     <extend type="ios" statusbarcolor="#858586"/> 
   </view>  
-  <view id="Login" ref="Login.dsl" include="true"/>  
-  <view id="Register" ref="Register.dsl" include="true"/>  
+  <view id="Login" ref="Login.dsl" include="true"> 
+    <extend type="ios" statusbarcolor="#cccccc"/> 
+  </view>  
+  <view id="Register" ref="Register.dsl" include="true"> 
+    <extend type="ios" statusbarcolor="#858586"/> 
+  </view>  
   <view id="Share" ref="Share.dlg" include="true"/>  
   <view id="FavoriteChange" ref="FavoriteChange.dlg" include="true"/>  
   <import id="weixin" type="mobile" ref="component"/>  

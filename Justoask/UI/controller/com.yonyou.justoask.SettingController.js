@@ -42,7 +42,7 @@ try {
 
 	function com$yonyou$justoask$SettingController$themechange(sender, args) {
 		$view.openPicker({
-			"okaction" : "themechangeok()", //确定后执行的JS方法
+			"okaction" : "themeChangeOk()", //确定后执行的JS方法
 			"title" : "主题切换",
 			"pickercount" : "1",
 			"datasource" : {
@@ -63,7 +63,7 @@ try {
 		})
 	}
 
-	function themechangeok() {
+	function themeChangeOk() {
 		var changeData = $ctx.getString("theme");
 		var changeValue = $stringToJSON(changeData).value;
 		var changeContent = $stringToJSON(changeData).content;
@@ -76,7 +76,7 @@ try {
 
 	function com$yonyou$justoask$SettingController$speechchange(sender, args) {
 		$view.openPicker({
-			"okaction" : "speechchangeok()", //确定后执行的JS方法
+			"okaction" : "speechChangeOk()", //确定后执行的JS方法
 			"title" : "语速设置",
 			"pickercount" : "1",
 			"datasource" : {
@@ -97,7 +97,7 @@ try {
 		})
 	}
 
-	function speechchangeok() {
+	function speechChangeOk() {
 		var changeData = $ctx.getString("speech");
 		var changeValue = $stringToJSON(changeData).value;
 		var changeContent = $stringToJSON(changeData).content;
@@ -110,7 +110,7 @@ try {
 
 	function com$yonyou$justoask$SettingController$typechange(sender, args) {
 		$view.openPicker({
-			"okaction" : "typechangeok()", //确定后执行的JS方法
+			"okaction" : "typeChangeOk()", //确定后执行的JS方法
 			"title" : "语音播报选择",
 			"pickercount" : "1",
 			"datasource" : {
@@ -134,7 +134,7 @@ try {
 		})
 	}
 
-	function typechangeok() {
+	function typeChangeOk() {
 		var changeData = $ctx.getString("type");
 		var changeValue = $stringToJSON(changeData).value;
 		var changeContent = $stringToJSON(changeData).content;

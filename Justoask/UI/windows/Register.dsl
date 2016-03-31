@@ -13,15 +13,15 @@
         <div id="panel3">
             <div id="panel0">
                 <label id="label0">用户名</label>
-                <input id="textbox0" bindfield="userName" maxlength="256" placeholder="请输入用户名" type="text"/> 
+                <input id="textbox0" bindfield="" maxlength="256" placeholder="请输入用户名" type="text"/> 
             </div>
             <div id="panel1">
                 <label id="label1">密码</label>
-                <input id="textbox1" bindfield="password" maxlength="256" placeholder="请输入密码" type="password"/> 
+                <input id="textbox1" bindfield="" maxlength="256" placeholder="请输入密码" type="password"/> 
             </div>
             <div id="panel2">
                 <label id="label2">确认密码</label>
-                <input id="textbox2" bindfield="repassword" maxlength="256" placeholder="请再次输入密码" type="password"/> 
+                <input id="textbox2" bindfield="" maxlength="256" placeholder="请再次输入密码" type="password"/> 
             </div> 
         </div> 
     </div> 

@@ -37,11 +37,11 @@ margin-right:22;
 halign:center;
 height:88;
 border-radius:5;
-layout:vbox;
 background:#dee8ed;
+layout:vbox;
 width:fill;
-opacity:0.52;
 margin-left:22;
+opacity:0.52;
 valign:TOP;
 }
  #panel2 {

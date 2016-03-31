@@ -105,13 +105,18 @@ try {
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
 		//说话
 		$service.call("SpeechService.openSpeechBackString", {
-			"callback" : "microphonecallback()",
-			"error" : "microphonecallback()"
+			"bindfield" : "text",
+			"callback" : "microPhoneCallback()",
+			"error" : "microPhoneCallback()"
 		}, false);
 	}
 
-	function microphonecallback(sender, args) {
+	function microPhoneCallback(sender, args) {
 		var keyword = $stringToJSON(args).text;
+		if(CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS){
+			keyword = keyword.result;
+		}
+		$alert(keyword);
 		$ctx.put("keyword", keyword);
 		//百度问题搜索
 		/*var url = $cache.read("url");
