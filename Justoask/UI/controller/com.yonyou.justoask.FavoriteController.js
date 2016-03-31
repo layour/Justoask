@@ -37,14 +37,28 @@ try {
 	}
 
 	function com$yonyou$justoask$FavoriteController$loadList(sender, args) {
-		var userId = $cache.write(com.yonyou.justoask.GlobalResources.userObj.USERID);
+		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
+		if (autoLogin == "true") {
+			isAutoLoginCallback();
+		} else {
+			//先登录
+			$view.open({
+				"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
+				"isKeep" : "true", //保留当前页面不关闭
+				"callback" : "isAutoLoginCallback()"//回调的JS方法
+			});
+		}
+	}
+	
+	function isAutoLoginCallback(){
+		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
 		//查询收藏列表
 		var url = $cache.read("url");
 		$service.post({
 			"url" : url + "/JustoaskServer/collect/list",
 			"data" : {
 				"page.size" : 20,
-				"search_userId" : "123"
+				"search_userId" : userId
 			},
 			"callback" : "listCollectCallBack()",
 			"timeout" : "5"//可选参数，超时时间，单位为秒

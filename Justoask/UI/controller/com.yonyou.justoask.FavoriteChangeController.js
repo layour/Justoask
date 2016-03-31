@@ -38,13 +38,13 @@ try {
 
 	function com$yonyou$justoask$FavoriteChangeController$yesFavorite(sender, args) {
 		$view.closeWithCallBack({
-			"changeResult" : "{change : yes}"
+			"changeResult" : "yes"
 		})
 	}
 
 	function com$yonyou$justoask$FavoriteChangeController$noFavorite(sender, args) {
 		$view.closeWithCallBack({
-			"changeResult" : "{change : no}"
+			"changeResult" : "no"
 		})
 	}
 

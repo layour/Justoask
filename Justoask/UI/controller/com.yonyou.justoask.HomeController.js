@@ -100,7 +100,6 @@ try {
 	}
 	
 	function initSpeechCallback(){
-		$alert($ctx.getJSONObject());
 	}
 
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
@@ -112,7 +111,6 @@ try {
 	}
 
 	function microphonecallback(sender, args) {
-		$alert(arguments);
 		var keyword = $stringToJSON(args).text;
 		$ctx.put("keyword", keyword);
 		//百度问题搜索
@@ -193,36 +191,32 @@ try {
 	}
 	
 	function closeFavoriteCallback(){
-		var changeParam = $param.getJSONObject("changeResult");
-		$alert(changeParam);
+		var changeParam = $param.getString("changeResult");
 		
-		if(changeParam.change = "yes") {
+		if(changeParam == "yes") {
 			var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
-			$alert(userId);
 			//再收藏一个问题
 			var url = $cache.read("url");
-			/*$service.post({
+			$service.post({
 				"url" : url + "/JustoaskServer/collect/save",
 				"data" : {
 					"userId" : userId,
-					"problem" : $ctx.getString("keyword"),
+					"problemDesc" : $ctx.getString("keyword"),
 					"answer" : $ctx.getString("searchResult")
 				},
 				"callback" : "collectCallBack()",
 				"timeout" : "5"//可选参数，超时时间，单位为秒
-			});*/
-			$alert(url + "/JustoaskServer/collect/save?userId=" + userId + "&problem=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"));
-			$service.get({
-				"url" : url + "/JustoaskServer/collect/save?userId=" + userId + "&problem=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"),
+			});
+			/*$service.get({
+				"url" : url + "/JustoaskServer/collect/save?userId=" + userId + "&problemDesc=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"),
 				"callback" : "collectCallBack()",
 				"timeout" : "5"//可选参数，超时时间，单位为秒
-			})
+			})*/
 		}
 	}
 
 	function collectCallBack() {
 		var result = $ctx.param("result");
-		$alert(result);
 		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
 			$alert("收藏超时");
 			return;
