@@ -159,7 +159,7 @@ try {
 			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
 			"callback" : "speechCallback()",
-			"error" : "speechCallback()"
+			"error" : "speechErrorCallback()"
 		}, false);
 	}
 	
@@ -179,6 +179,10 @@ try {
 			"animation-type" : "center",//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
 			"callback" : "closeFavoriteCallback()"//回调的JS方法
 		});
+	}
+	
+	function speechErrorCallback(){
+		$alert("语音合成失败！");
 	}
 	
 	function closeFavoriteCallback(){
