@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<buildlog><buildserver address="10.2.112.43:8080/ump"><app type="ios"><package>24583</package></app></buildserver><buildserver address="123.103.9.204:8050/ump"><app type="ios"><package>24363</package></app></buildserver></buildlog>
+<buildlog><buildserver address="10.2.112.43:8080/ump"><app type="ios"><package>24663</package></app></buildserver><buildserver address="123.103.9.204:8050/ump"><app type="ios"><package>24363</package></app></buildserver></buildlog>

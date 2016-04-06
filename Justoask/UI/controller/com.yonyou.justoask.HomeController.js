@@ -128,9 +128,14 @@ try {
 			"timeout" : "5"//可选参数，超时时间，单位为秒
 		});*/
 		
+		$alert(keyword);		
 		//图灵机器人搜索
-		$service.get({
-			"url" : "http://www.tuling123.com/openapi/api?key=707fde02c577b0bb391c0fcc1b2a16f6&info=" + keyword,
+		$service.post({
+			"url" : "http://www.tuling123.com/openapi/api",
+			"data" : {
+				"key" : "707fde02c577b0bb391c0fcc1b2a16f6",
+				"info" : keyword
+			},
 			"callback" : "searchCallBack()",
 			"timeout" : "5"//可选参数，超时时间，单位为秒
 		})
@@ -138,23 +143,19 @@ try {
 
 	function searchCallBack() {
 		var result = $ctx.param("result");
+		$alert(result);
 		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
 			$alert("搜索超时,检查网络！");
 			return;
 		}
 		//将字符串转换成JSON对象
 		result = $stringToJSON(result);
-		if(result.code != "100000"){
-			$alert("服务器错误！");
-			return;
-		}
-
 		var keyword = $ctx.getString("keyword");
 		$ctx.put("searchResult", result.text);
 
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是：" + keyword + "。答案是：" + result.text + "。",
+			"text" : result.text + "。",
 			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
 			"callback" : "speechCallback()",
