@@ -127,12 +127,12 @@ try {
 				"isgetaddress" : "true", //是否需要获取地址
 				"network" : "true" //是否使用wifi定位
 			});
-		}if(keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1){
+		}else if(keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1){
 			$view.open({
 				"viewid" : "com.yonyou.justoask.Map",//目标页面（首字母大写）全名，
 				"isKeep" : "true"
 			});
-		}if(keyword.indexOf("电话") > -1){
+		}else if(keyword.indexOf("电话") > -1){
 			execContacts();
 		} else {
 			//百度问题搜索
