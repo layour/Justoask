@@ -40,40 +40,6 @@ try {
 		$view.close();
 	}
 
-	function com$yonyou$justoask$SettingController$themechange(sender, args) {
-		$view.openPicker({
-			"okaction" : "themeChangeOk()", //确定后执行的JS方法
-			"title" : "主题切换",
-			"pickercount" : "1",
-			"datasource" : {
-				picker : [{
-					select : [{
-						value : 1,
-						content : "简约"
-					}, {
-						value : 2,
-						content : "商务"
-					}, {
-						value : 3,
-						content : "卡通"
-					}]
-				}]
-			},
-			"picker1binder" : "theme" //Context字段名，存放选中项的value
-		})
-	}
-
-	function themeChangeOk() {
-		var changeData = $ctx.getString("theme");
-		var changeValue = $stringToJSON(changeData).value;
-		var changeContent = $stringToJSON(changeData).content;
-		var oldValue = $id("label5").get("value");
-		if (oldValue != changeValue) {
-			$id("label5").set("value", changeContent);
-			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.THEME, changeValue);
-		}
-	}
-
 	function com$yonyou$justoask$SettingController$speechchange(sender, args) {
 		$view.openPicker({
 			"okaction" : "speechChangeOk()", //确定后执行的JS方法
@@ -154,16 +120,8 @@ try {
 	}
 
 	function com$yonyou$justoask$SettingController$loadsetting(sender, args) {
-		var theme = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.THEME);
 		var speech = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH);
 		var type = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE);
-		if(theme == "1"){
-			$id("label5").set("value", "简约");
-		} else if(theme == "2"){
-			$id("label5").set("value", "商务");
-		} else if(theme == "3"){
-			$id("label5").set("value", "卡通");
-		}
 		if(speech == "75"){
 			$id("label2").set("value", "快速");
 		} else if(speech == "50"){
@@ -189,7 +147,6 @@ try {
 		checkversion : com$yonyou$justoask$SettingController$checkversion,
 		typechange : com$yonyou$justoask$SettingController$typechange,
 		speechchange : com$yonyou$justoask$SettingController$speechchange,
-		themechange : com$yonyou$justoask$SettingController$themechange,
 		closeSetting : com$yonyou$justoask$SettingController$closeSetting,
 		initialize : com$yonyou$justoask$SettingController$initialize,
 		evaljs : com$yonyou$justoask$SettingController$evaljs

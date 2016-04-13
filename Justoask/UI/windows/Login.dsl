@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="Login" controller="LoginController" namespace="com.yonyou.justoask">
+<window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="Login" canvaswidth="320" canvasheight="460" orientation="vertical" controller="LoginController" namespace="com.yonyou.justoask">
     <import ref="Login.css" type="css"/>
     <link type="text/css" href="sys/theme.css"/>
     <script src="#{path.controller}/com.yonyou.justoask.GlobalResources.js" type="text/javascript"/>

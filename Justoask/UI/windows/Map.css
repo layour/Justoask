@@ -1,0 +1,23 @@
+ #Map {
+halign:center;
+height:fill;
+width:fill;
+layout:vbox;
+valign:TOP;
+}
+ #viewPage0 {
+halign:center;
+height:fill;
+width:fill;
+background:#F7F8F8;
+layout:relative;
+}
+ #gaodemapview0 {
+location-img:mixedspot;
+height:fill;
+width:fill;
+around-img:maphot;
+left:0.0;
+background-image:map;
+top:0.0;
+}

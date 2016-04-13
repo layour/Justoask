@@ -5,6 +5,7 @@
   <components> 
     <component name="Justoask" start="true"/> 
   </components>  
-  <import id="weixin" type="mobile" ref="component"/>
-  <import id="SpeechService" type="mobile" ref="service"/>
+  <import id="weixin" type="mobile" ref="component"/>  
+  <import id="SpeechService" type="mobile" ref="service"/>  
+  <import id="gaodeMap" type="mobile" ref="component"/> 
 </application>

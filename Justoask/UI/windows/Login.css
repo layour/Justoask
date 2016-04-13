@@ -1,6 +1,6 @@
  #Login {
 halign:center;
-height:569;
+height:fill;
 layout:vbox;
 width:fill;
 valign:TOP;
@@ -37,11 +37,11 @@ margin-right:22;
 halign:center;
 height:88;
 border-radius:5;
-background:#dee8ed;
 layout:vbox;
+background:#dee8ed;
 width:fill;
-margin-left:22;
 opacity:0.52;
+margin-left:22;
 valign:TOP;
 }
  #panel2 {

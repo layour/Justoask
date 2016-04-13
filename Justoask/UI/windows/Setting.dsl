@@ -10,11 +10,6 @@
             <label id="label0"/> 
         </navigatorbar>
         <div id="panel3">
-            <div id="panel5" onclick="this.themechange()">
-                <label id="label4">主题切换</label>
-                <label id="label5">简约</label>
-                <label id="label6"/> 
-            </div>
             <div id="panel0" onclick="this.speechchange()">
                 <label id="label1">语速设置</label>
                 <label id="label2">标准</label>

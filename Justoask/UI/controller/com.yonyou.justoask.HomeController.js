@@ -117,33 +117,75 @@ try {
 			keyword = keyword.result;
 		}
 		$ctx.put("keyword", keyword);
-		//百度问题搜索
-		/*var url = $cache.read("url");
-		$service.post({
-			"url" : url + "/JustoaskServer/problem/search",
-			"data" : {
-				"keyword" : keyword
-			},
-			"callback" : "searchCallBack()",
-			"timeout" : "5"//可选参数，超时时间，单位为秒
-		});*/
 		
-		$alert(keyword);		
-		//图灵机器人搜索
-		$service.post({
-			"url" : "http://www.tuling123.com/openapi/api",
-			"data" : {
-				"key" : "707fde02c577b0bb391c0fcc1b2a16f6",
-				"info" : keyword
-			},
-			"callback" : "searchCallBack()",
-			"timeout" : "5"//可选参数，超时时间，单位为秒
-		})
+		//问地点
+		if(keyword.indexOf("位置") > -1 || keyword.indexOf("地点") > -1 || keyword.indexOf("在哪儿") > -1 || keyword.indexOf("地址") > -1){
+			$device.getLocation({
+				"bindfield" : "location", //位置信息回写的绑定字段
+				"callback" : "getLocationCallBack()", //回调执行的JS方法
+				"single" : "true", //是否只获取1次
+				"isgetaddress" : "true", //是否需要获取地址
+				"network" : "true" //是否使用wifi定位
+			});
+		}if(keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1){
+			$view.open({
+				"viewid" : "com.yonyou.justoask.Map",//目标页面（首字母大写）全名，
+				"isKeep" : "true"
+			});
+		}if(keyword.indexOf("电话") > -1){
+			execContacts();
+		} else {
+			//百度问题搜索
+			/*var url = $cache.read("url");
+			$service.post({
+				"url" : url + "/JustoaskServer/problem/search",
+				"data" : {
+					"keyword" : keyword
+				},
+				"callback" : "searchCallBack()",
+				"timeout" : "5"//可选参数，超时时间，单位为秒
+			});*/
+			
+			//图灵机器人搜索
+			$service.post({
+				"url" : "http://www.tuling123.com/openapi/api",
+				"data" : {
+					"key" : "707fde02c577b0bb391c0fcc1b2a16f6",
+					"info" : keyword
+				},
+				"callback" : "searchCallBack()",
+				"timeout" : "5"//可选参数，超时时间，单位为秒
+			})
+		}
+	}
+	
+	function getLocationCallBack(){
+		var location = $ctx.getString("location");
+		location = $stringToJSON(location);//将字符串转换成JSON对象
+		if(location){
+			speechTimeOrAddr("当前位置是：" + location.address);
+		} else {
+			speechTimeOrAddr("您还在地球上！");
+		}
+	}
+	
+	function execContacts(){
+		$js.showLoadingBar();
+		var contactsObj = $device.getContacts();
+		$js.hideLoadingBar();
+		contactsObj = $stringToJSON(contactsObj);
+	}
+	
+	function speechTimeOrAddr(resultStr){
+		$service.call("SpeechService.openStringBackSpeech", {
+			"text" : resultStr,
+			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
+			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH)
+		}, false);
 	}
 
 	function searchCallBack() {
 		var result = $ctx.param("result");
-		$alert(result);
 		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
 			$alert("搜索超时,检查网络！");
 			return;
@@ -155,7 +197,7 @@ try {
 
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : result.text + "。",
+			"text" : "您的问题是" + keyword + "。答案是" + result.text + "。答案阅读完了，您是否收藏这个问题？",
 			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
 			"callback" : "speechCallback()",

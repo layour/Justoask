@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <application id="Justoask" appname="问一下" versionCode="1" versionName="1" icon="app" theme="ios7" jsengine="v2.0" package="com.yonyou.justoask" language="zh_cn" autoCheckUpdate="false" push_enable="false" isLibrary="false"> 
-  <permission id="internet"/>  
   <start view="Home"/>  
   <!--view id="demo" ref="demo.dsl"><extend screenOrientation="landscape|portrait|unspecified"/></view-->  
   <!--view id="demo" ref="demo.dsl"><extend windowSoftInputMode="stateUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|stateVisible|stateAlwaysVisible|adjustUnspecified|adjustResize|adjustPan"/></view-->  
@@ -23,7 +22,11 @@
   <view id="Share" ref="Share.dlg" include="true"/>  
   <view id="FavoriteChange" ref="FavoriteChange.dlg" include="true"/>  
   <import id="weixin" type="mobile" ref="component"/>  
-  <import id="SpeechService" type="mobile" ref="service"/> 
+  <import id="SpeechService" type="mobile" ref="service"/>  
+  <view id="Map" ref="Map.dsl" include="true"/>  
+  <import id="gaodeMap" type="mobile" ref="component"/>  
+  <permission id="internet"/>  
+  <permission id="read_contacts"/> 
 </application>
 <!--
 【屏幕显示方向】
