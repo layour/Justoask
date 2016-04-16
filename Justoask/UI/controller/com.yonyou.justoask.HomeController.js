@@ -66,8 +66,20 @@ try {
 	function settingAction() {
 		$view.open({
 			"viewid" : "com.yonyou.justoask.Setting", //目标页面（首字母大写）全名，
-			"isKeep" : "true"
+			"isKeep" : "true",
+			"callback" : "closeSettingTheme()"
 		});
+	}
+	
+	function closeSettingTheme(){
+		var theme = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.THEME);
+		if(theme == "2"){
+			$id("viewPage0").setAttribute("background-image", "bgshangwu.png");
+		} else if(theme == "3"){
+			$id("viewPage0").setAttribute("background-image", "bgkatong.png");
+		} else {
+			$id("viewPage0").setAttribute("background-image", "bgjianyue.png");
+		}
 	}
 
 	function com$yonyou$justoask$HomeController$homeLoad(sender, args) {
@@ -133,7 +145,7 @@ try {
 				"isKeep" : "true"
 			});
 		}else if(keyword.indexOf("电话") > -1){
-			execContacts();
+			execContacts(keyword);
 		} else {
 			//百度问题搜索
 			/*var url = $cache.read("url");
@@ -169,11 +181,23 @@ try {
 		}
 	}
 	
-	function execContacts(){
+	function execContacts(keyword){
 		$js.showLoadingBar();
-		var contactsObj = $device.getContacts();
+		var contactsArray = $device.getContacts();
 		$js.hideLoadingBar();
-		contactsObj = $stringToJSON(contactsObj);
+		contactsArray = $stringToJSON(contactsArray);
+		for (var i=0; i < contactsArray.length; i++) {
+			var name = contactsArray[i].name;
+			var phones = contactsArray[i].phones;
+			if(phones){
+				var phone = phones[0].phone;
+				if(keyword.indexOf(name) > -1){
+					$tel.call(phone);
+					return;
+				}
+			}
+		}
+		speechTimeOrAddr("对不起，没有找到联系人！");
 	}
 	
 	function speechTimeOrAddr(resultStr){

@@ -10,6 +10,11 @@
             <label id="label0"/> 
         </navigatorbar>
         <div id="panel3">
+            <div id="panel5" onclick="this.themechange()">
+                <label id="label4">主题切换</label>
+                <label id="label5">简约</label>
+                <label id="label6"/> 
+            </div>
             <div id="panel0" onclick="this.speechchange()">
                 <label id="label1">语速设置</label>
                 <label id="label2">标准</label>
@@ -22,13 +27,12 @@
             </div> 
         </div>
         <div id="panel4">
-            <div id="panel2" onclick="this.checkversion()">
-                <label id="label10">检测新版本</label>
-                <label id="label11">V1.0</label>
-                <label id="label12"/> 
+            <div id="panel2">
+                <label id="label10">版本</label>
+                <label id="label11">V1.0</label> 
             </div>
             <div id="panel6" onclick="this.askoption()">
-                <label id="label13">意见反馈</label>
+                <label id="label13">检测新版本</label>
                 <label id="label15"/> 
             </div> 
         </div> 

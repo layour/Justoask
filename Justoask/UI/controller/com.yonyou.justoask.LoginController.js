@@ -65,7 +65,7 @@ try {
 	}
 	
 	function loginCallBack(){
-		var autoLogin = $id("checkbox0").get("checked");
+		var autoLogin = "true";
 		
 		var result = $ctx.param("result");//get和post的CallBack中获取返回结果都从result中获取
 		if(com.yonyou.justoask.GlobalResources.isEmptyString(result)){

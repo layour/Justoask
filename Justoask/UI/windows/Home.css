@@ -8,19 +8,19 @@ valign:TOP;
  #viewPage0 {
 halign:center;
 height:fill;
-background:#cccccc;
 layout:vbox;
 width:fill;
 valign:TOP;
+background-image:bgjianyue.png;
 }
  #navigatorbar0 {
-padding-right:8;
 padding-left:8;
+padding-right:8;
 halign:LEFT;
 height:44.0;
-color:#8b8b8b;
-font-size:20;
+color:#1f75ca;
 layout:hbox;
+font-size:20;
 width:fill;
 font-family:default;
 valign:center;
@@ -29,7 +29,7 @@ valign:center;
 halign:left;
 height:44;
 width:44;
-background-image:share.png;
+background-image:icon_share.png;
 }
  #label0 {
 halign:center;
@@ -45,7 +45,7 @@ valign:center;
 halign:right;
 height:44;
 width:44;
-background-image:more.png;
+background-image:icon_menu.png;
 }
  #panel0 {
 halign:center;

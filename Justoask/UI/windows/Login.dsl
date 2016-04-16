@@ -5,9 +5,7 @@
     <link type="text/css" href="sys/theme.css"/>
     <script src="#{path.controller}/com.yonyou.justoask.GlobalResources.js" type="text/javascript"/>
     <div id="viewPage0">
-        <div id="panel0">
-            <label id="label0">问一下</label> 
-        </div>
+        <div id="panel0"/>
         <div id="panel1">
             <div id="panel2">
                 <image id="image0" scaletype="fitcenter" src="user.png"/>
@@ -19,8 +17,6 @@
             </div> 
         </div>
         <div id="panel4">
-            <label id="label1">自动登录</label>
-            <input id="checkbox0" bindfield="" type="checkbox" checked="checked"/>
             <label id="label2" onclick="this.openregister()">立即注册</label> 
         </div>
         <input id="button0" value="登录" class="textbtnclass" onclick="this.userLogin()" type="button"/>

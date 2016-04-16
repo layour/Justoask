@@ -8,9 +8,9 @@ valign:TOP;
  #viewPage0 {
 halign:center;
 height:fill;
-background:#cccccc;
 layout:vbox;
 width:fill;
+background:#e3f6ff;
 valign:TOP;
 }
  #panel0 {
@@ -21,24 +21,13 @@ layout:vbox;
 width:fill;
 valign:CENTER;
 }
- #label0 {
-halign:center;
-height:wrap;
-widthWrap:78.0;
-color:#8b8b8b;
-heightWrap:35.0;
-font-size:25;
-width:wrap;
-font-family:default;
-valign:center;
-}
  #panel1 {
 margin-right:22;
 halign:center;
 height:88;
 border-radius:5;
 layout:vbox;
-background:#dee8ed;
+background:#ffffff;
 width:fill;
 opacity:0.52;
 margin-left:22;
@@ -101,44 +90,24 @@ width:fill;
 margin-left:25;
 valign:center;
 }
- #label1 {
-halign:center;
-height:wrap;
-widthWrap:68.0;
-color:#8b8b8b;
-heightWrap:23.0;
-font-size:16;
-width:wrap;
-font-family:default;
-valign:center;
-}
- #checkbox0 {
-height:40;
-width:40;
-check-on-image:check_on.png;
-check-off-image:check_off.png;
-}
  #label2 {
 halign:right;
 height:fill;
 weight:1;
-color:#8b8b8b;
+color:#666666;
 font-size:14;
 width:0;
-margin-left:40;
 font-family:default;
 valign:center;
 }
  #button0 {
 border-radius:5;
 width:fill;
-font-pressed-color:#459dfe;
-pressed-color:#ffffff;
 margin-right:22;
 height:44;
-color:#333333;
+color:#ffffff;
 font-size:20;
-background:#dee8ed;
+background:#167ef8;
 opacity:0.52;
 margin-left:22;
 margin-top:10;

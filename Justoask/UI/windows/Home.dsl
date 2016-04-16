@@ -5,7 +5,7 @@
     <link type="text/css" href="sys/theme.css"/>
     <script src="#{path.controller}/com.yonyou.justoask.GlobalResources.js" type="text/javascript"/>
     <div id="viewPage0" onload="this.homeLoad()">
-        <navigatorbar id="navigatorbar0" title="问一下">
+        <navigatorbar id="navigatorbar0">
             <input id="button0" class="ngbbuttonclass" onclick="this.openShare()" type="button"/>
             <label id="label0"/>
             <input id="button1" class="ngbbuttonclass" onclick="this.openPopMenu()" type="button"/> 

@@ -6,6 +6,7 @@ try {
 	//声明Setting变量
 	com.yonyou.justoask.GlobalResources.settingObj = new Object();
 
+	com.yonyou.justoask.GlobalResources.settingObj.THEME = "THEME";
 	com.yonyou.justoask.GlobalResources.settingObj.SPEECH = "SPEECH";
 	com.yonyou.justoask.GlobalResources.settingObj.TYPE = "TYPE";
 
