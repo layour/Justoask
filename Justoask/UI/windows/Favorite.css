@@ -14,14 +14,14 @@ width:fill;
 valign:TOP;
 }
  #navigatorbar0 {
-padding-right:8;
 padding-left:8;
+padding-right:8;
 halign:LEFT;
 height:44.0;
-color:#232323;
-background:#858586;
-layout:hbox;
+color:#4d4d4d;
 font-size:20;
+layout:hbox;
+background:#858586;
 width:fill;
 font-family:default;
 valign:center;
@@ -63,8 +63,8 @@ valign:TOP;
 border-bottom-width:1;
 halign:left;
 height:100;
-background:#dee8ed;
 layout:vbox;
+background:#dee8ed;
 width:fill;
 valign:CENTER;
 border-bottom-color:#f1f4f5;

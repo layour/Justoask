@@ -36,8 +36,13 @@ try {
 		eval(js)
 	}
 
+	function com$yonyou$justoask$MapController$closeMap(sender, args) {
+		$view.close();
+	}
+
 
 	com.yonyou.justoask.MapController.prototype = {
+		closeMap : com$yonyou$justoask$MapController$closeMap,
 		initialize : com$yonyou$justoask$MapController$initialize,
 		evaljs : com$yonyou$justoask$MapController$evaljs
 	};
