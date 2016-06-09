@@ -11,41 +11,7 @@ height:fill;
 layout:vbox;
 width:fill;
 valign:TOP;
-background-image:bgjianyue.png;
-}
- #navigatorbar0 {
-padding-left:8;
-padding-right:8;
-halign:LEFT;
-height:44.0;
-color:#1f75ca;
-layout:hbox;
-font-size:20;
-width:fill;
-font-family:default;
-valign:center;
-}
- #button0 {
-halign:left;
-height:44;
-width:44;
-background-image:icon_share.png;
-}
- #label0 {
-halign:center;
-height:fill;
-weight:1;
-color:#8b8b8b;
-font-size:14;
-width:0;
-font-family:default;
-valign:center;
-}
- #button1 {
-halign:right;
-height:44;
-width:44;
-background-image:icon_menu.png;
+background-image:bghome.png;
 }
  #panel0 {
 halign:center;
@@ -55,14 +21,103 @@ layout:vbox;
 width:fill;
 valign:TOP;
 }
+ #label0 {
+halign:center;
+height:44;
+color:#ffffff;
+font-size:14;
+width:fill;
+font-family:default;
+valign:center;
+}
+ #listviewdefine0 {
+halign:center;
+height:0;
+weight:1;
+layout:vbox;
+width:fill;
+valign:TOP;
+}
+ #panel2 {
+border-bottom-width:1;
+halign:LEFT;
+height:60.0;
+layout:hbox;
+background:#FFFFFF;
+width:fill;
+valign:center;
+border-bottom-color:#C7C7C7;
+}
+ #image1 {
+height:44;
+width:44;
+}
+ #panel3 {
+halign:center;
+height:60.0;
+weight:1;
+layout:vbox;
+width:0;
+valign:TOP;
+}
+ #label1 {
+halign:left;
+height:0;
+weight:1;
+color:#000000;
+font-size:14;
+width:fill;
+font-family:default;
+valign:center;
+}
+ #label2 {
+halign:left;
+height:0;
+weight:1;
+color:#000000;
+font-size:14;
+width:fill;
+font-family:default;
+valign:center;
+}
  #panel1 {
+padding-left:22;
+padding-right:22;
 halign:CENTER;
-height:140;
+height:200;
 layout:hbox;
 width:fill;
 valign:center;
 }
+ #button1 {
+halign:right;
+height:44;
+width:44;
+background-image:icon_menu.png;
+}
+ #panel4 {
+halign:center;
+height:60.0;
+weight:1;
+layout:vbox;
+width:0;
+valign:TOP;
+}
  #image0 {
 height:100;
 width:100;
+}
+ #panel5 {
+halign:center;
+height:60.0;
+weight:1;
+layout:vbox;
+width:0;
+valign:TOP;
+}
+ #button0 {
+halign:left;
+height:44;
+width:44;
+background-image:icon_share.png;
 }
