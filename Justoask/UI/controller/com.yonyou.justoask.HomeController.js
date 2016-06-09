@@ -54,11 +54,6 @@ try {
 
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
-		//初始化分享
-		$wxshare.init({
-			"appid" : "wx9aaa6c47f70709e3"
-		});
-		//签名a74ab91cf78a537e8a0266875b1d340d
 
 		//延时提示
 		setTimeout(initSpeech, 1000);
@@ -287,7 +282,7 @@ try {
 			list : [{
 				image : "website.png",
 				title : "如何问地点",
-				content : "\"我在哪儿？\""
+				content : "\"我的位置？\""
 			},{
 				image : "event.png",
 				title : "如何问时间",

@@ -37,7 +37,7 @@ try {
 	}
 
 	function com$yonyou$justoask$ShareController$loadShare(sender, args) {
-		if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
+		/*if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
 			$wxshare.init({
 				"appid" : "wx853ca6a405d3947d"
 			})//IOS
@@ -45,7 +45,12 @@ try {
 			$wxshare.init({
 				"appid" : "wx853ca6a405d3947d"
 			})//android
-		}
+		}*/
+		//初始化分享
+		$wxshare.init({
+			"appid" : "wx853ca6a405d3947d"
+		});
+		//签名a74ab91cf78a537e8a0266875b1d340d
 	}
 
 	function com$yonyou$justoask$ShareController$friendEdit(sender, args) {
