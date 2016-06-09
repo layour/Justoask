@@ -1,6 +1,6 @@
  #Favorite {
 halign:center;
-height:569;
+height:fill;
 layout:vbox;
 width:fill;
 valign:TOP;
@@ -9,71 +9,62 @@ valign:TOP;
 halign:center;
 height:fill;
 layout:vbox;
-background:#D5D5D5;
+background:#f7f7f7;
 width:fill;
 valign:TOP;
 }
- #navigatorbar0 {
+ #panel1 {
+padding-right:44;
+border-bottom-width:1px;
 padding-left:8;
-padding-right:8;
 halign:LEFT;
-height:44.0;
-color:#4d4d4d;
-font-size:20;
+height:49;
 layout:hbox;
-background:#858586;
+background:#f0f0f0;
 width:fill;
-font-family:default;
 valign:center;
+border-bottom-color:#c3c3c3;
 }
- #button0 {
+ #button1 {
 padding-left:20;
 halign:left;
-height:44;
-color:#e50011;
-font-size:20;
-width:44;
-font-family:default;
-valign:center;
+height:36;
+width:36;
 background-image:back.png;
 }
- #label0 {
+ #label3 {
 halign:center;
 height:fill;
 weight:1;
-color:#000000;
-font-size:14;
+color:#242424;
+font-size:15;
 width:0;
 font-family:default;
 valign:center;
 }
  #listviewdefine0 {
-margin-right:10;
 halign:center;
 height:0;
 weight:1;
 layout:vbox;
 width:fill;
-margin-left:10;
-margin-bottom:10;
-margin-top:10;
 valign:TOP;
 }
  #panel0 {
-border-bottom-width:1;
+border-bottom-width:1px;
 halign:left;
 height:100;
+background:#f7f7f7;
 layout:vbox;
-background:#dee8ed;
 width:fill;
 valign:CENTER;
-border-bottom-color:#f1f4f5;
+border-bottom-color:#d2d2d2;
 }
  #label1 {
 margin-right:10;
 halign:left;
 height:wrap;
-color:#6f99bd;
+color:#535353;
 heightWrap:25.0;
 font-size:15;
 width:fill;
@@ -87,7 +78,7 @@ margin-right:10;
 halign:left;
 height:0;
 weight:1;
-color:#555555;
+color:#262626;
 font-size:14;
 width:fill;
 margin-left:10;

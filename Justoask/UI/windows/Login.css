@@ -10,8 +10,8 @@ halign:center;
 height:fill;
 layout:vbox;
 width:fill;
-background:#e3f6ff;
 valign:TOP;
+background-image:bghome.png;
 }
  #panel0 {
 halign:center;
@@ -27,10 +27,10 @@ halign:center;
 height:88;
 border-radius:5;
 layout:vbox;
-background:#ffffff;
+background:#f0f0f0;
 width:fill;
-opacity:0.52;
 margin-left:22;
+opacity:0.5;
 valign:TOP;
 }
  #panel2 {
@@ -42,8 +42,8 @@ valign:center;
 }
  #image0 {
 margin-right:10;
-height:25;
-width:25;
+height:22;
+width:22;
 margin-left:10;
 }
  #textbox0 {
@@ -52,7 +52,7 @@ halign:LEFT;
 height:fill;
 weight:1;
 color:#167ef8;
-font-size:18;
+font-size:15;
 width:0;
 font-family:default;
 }
@@ -63,12 +63,12 @@ height:44;
 layout:hbox;
 width:fill;
 valign:center;
-border-top-width:1;
+border-top-width:1px;
 }
  #image1 {
 margin-right:10;
-height:25;
-width:25;
+height:22;
+width:22;
 margin-left:10;
 }
  #textbox1 {
@@ -77,7 +77,7 @@ halign:LEFT;
 height:fill;
 weight:1;
 color:#167ef8;
-font-size:18;
+font-size:15;
 width:0;
 font-family:default;
 }
@@ -95,7 +95,7 @@ halign:right;
 height:fill;
 weight:1;
 color:#666666;
-font-size:14;
+font-size:13;
 width:0;
 font-family:default;
 valign:center;
@@ -106,9 +106,9 @@ width:fill;
 margin-right:22;
 height:44;
 color:#ffffff;
-font-size:20;
+font-size:16;
 background:#167ef8;
-opacity:0.52;
+opacity:0.5;
 margin-left:22;
 margin-top:10;
 }

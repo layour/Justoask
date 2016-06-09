@@ -8,73 +8,58 @@ valign:TOP;
  #viewPage0 {
 halign:center;
 height:fill;
-background:#cccccc;
+background:#f7f7f7;
 layout:vbox;
 width:fill;
 valign:TOP;
 }
- #navigatorbar1 {
+ #panel4 {
 padding-right:8;
+border-bottom-width:1px;
 padding-left:8;
 halign:LEFT;
-height:44.0;
-color:#232323;
-background:#858586;
+height:49;
 layout:hbox;
-font-size:20;
+background:#f0f0f0;
 width:fill;
-font-family:default;
 valign:center;
+border-bottom-color:#c3c3c3;
 }
- #button2 {
+ #button1 {
 padding-left:20;
 halign:left;
-height:44;
-color:#e50011;
-font-size:20;
-width:44;
-font-family:default;
-valign:center;
+height:36;
+width:36;
 background-image:back.png;
 }
- #label4 {
+ #label3 {
 halign:center;
 height:fill;
 weight:1;
-color:#000000;
-font-size:14;
+color:#242424;
+font-size:15;
 width:0;
 font-family:default;
 valign:center;
 }
- #button0 {
+ #button3 {
 height:30;
 border-radius:5;
 color:#dee8ed;
-font-size:16;
-background:#4d4d4d;
+background:#595959;
+font-size:14;
 width:48;
 }
- #panel3 {
-margin-right:10;
-halign:center;
-height:150;
-layout:vbox;
-width:fill;
-margin-left:10;
-margin-top:10;
-valign:TOP;
-}
  #panel0 {
+border-bottom-width:1px;
 padding-left:5;
-border-bottom-width:1;
 halign:LEFT;
 height:50;
-background:#dee8ed;
 layout:hbox;
+background:#f7f7f7;
 width:fill;
 valign:center;
-border-bottom-color:#f1f4f5;
+border-bottom-color:#d2d2d2;
 }
  #label0 {
 padding-right:9;
@@ -82,10 +67,10 @@ halign:right;
 width:80;
 margin-right:5;
 height:wrap;
-color:#555555;
-heightWrap:23.0;
+color:#262626;
+heightWrap:20.0;
 border-right-color:#f1f4f5;
-font-size:16;
+font-size:14;
 border-right-width:1;
 font-family:default;
 valign:center;
@@ -95,22 +80,22 @@ padding-left:4;
 halign:LEFT;
 height:48;
 weight:1;
-color:#167ef8;
-font-size:16;
-background:#dee8ed;
+color:#595959;
+background:#f7f7f7;
+font-size:14;
 width:0;
 font-family:default;
 }
  #panel1 {
-border-bottom-width:1;
 padding-left:5;
+border-bottom-width:1px;
 halign:LEFT;
 height:50;
+background:#f7f7f7;
 layout:hbox;
-background:#dee8ed;
 width:fill;
 valign:center;
-border-bottom-color:#f1f4f5;
+border-bottom-color:#d2d2d2;
 }
  #label1 {
 padding-right:9;
@@ -118,10 +103,10 @@ halign:right;
 width:80;
 margin-right:5;
 height:wrap;
-color:#555555;
-heightWrap:23.0;
+color:#262626;
+heightWrap:20.0;
 border-right-color:#f1f4f5;
-font-size:16;
+font-size:14;
 border-right-width:1;
 font-family:default;
 valign:center;
@@ -131,20 +116,22 @@ padding-left:4;
 halign:LEFT;
 height:48;
 weight:1;
-color:#167ef8;
-font-size:16;
-background:#dee8ed;
+color:#595959;
+background:#f7f7f7;
+font-size:14;
 width:0;
 font-family:default;
 }
  #panel2 {
 padding-left:5;
+border-bottom-width:1px;
 halign:LEFT;
 height:50;
+background:#f7f7f7;
 layout:hbox;
-background:#dee8ed;
 width:fill;
 valign:center;
+border-bottom-color:#d2d2d2;
 }
  #label2 {
 padding-right:9;
@@ -152,10 +139,10 @@ halign:right;
 width:80;
 margin-right:5;
 height:wrap;
-color:#555555;
-heightWrap:23.0;
+color:#262626;
+heightWrap:20.0;
 border-right-color:#f1f4f5;
-font-size:16;
+font-size:14;
 border-right-width:1;
 font-family:default;
 valign:center;
@@ -165,9 +152,9 @@ padding-left:4;
 halign:LEFT;
 height:48;
 weight:1;
-color:#167ef8;
-font-size:16;
-background:#dee8ed;
+color:#595959;
+background:#f7f7f7;
+font-size:14;
 width:0;
 font-family:default;
 }

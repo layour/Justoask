@@ -37,51 +37,8 @@ try {
 	}
 
 	function com$yonyou$justoask$FavoriteController$loadList(sender, args) {
-		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
-		if (autoLogin == "true") {
-			isAutoLoginCallback();
-		} else {
-			//先登录
-			$view.open({
-				"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
-				"isKeep" : "true", //保留当前页面不关闭
-				"callback" : "isAutoLoginCallback()"//回调的JS方法
-			});
-		}
-	}
-	
-	function isAutoLoginCallback(){
-		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
-		//查询收藏列表
-		var url = $cache.read("url");
-		$service.post({
-			"url" : url + "/JustoaskServer/collect/list",
-			"data" : {
-				"page.size" : 20,
-				"search_userId" : userId
-			},
-			"callback" : "listCollectCallBack()",
-			"timeout" : "5"//可选参数，超时时间，单位为秒
-		});
-	}
-	
-	function listCollectCallBack(){
-		var result = $ctx.param("result");
-		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
-			$alert("查询超时,检查网络！");
-			return;
-		}
-		result = $stringToJSON(result);
-		var list = [];
-		for (var i=0; i < result.rows.length; i++) {
-			var itemObj = {
-				"problemDesc" : result.rows[i].problem.problemDesc,
-				"answer" : result.rows[i].problem.answer,
-				"collectTime" : result.rows[i].collectTime 
-			}
-		  	list[i] = itemObj;
-		};
-		$ctx.push({"list" : list});
+		var listData = $param.getJSONObject("listData");
+		$ctx.push({"list" : listData});
 	}
 
 	function com$yonyou$justoask$FavoriteController$closeFavorite(sender, args) {

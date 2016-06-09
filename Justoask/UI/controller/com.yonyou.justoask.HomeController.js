@@ -37,49 +37,13 @@ try {
 	}
 
 	function com$yonyou$justoask$HomeController$openPopMenu(sender, args) {
-		$menu.openDropDownList({
-			"controlid" : "button1",
-			"dropDownListWidth" : "120",
-			"background" : "#858586",
-			"panelstyle" : "round-div",
-			"font-size" : "15",
-			"color" : "#f1f4f5",
-			"split-color" : "#f1f4f5",
-			"showtype" : "right",
-			"dropItemsArray" : [{
-				"name" : "收藏夹", //菜单项名称
-				"action" : "favoriteAction()" //点击该菜单项时执行的JS方法
-			}, {
-				"name" : "设置", //菜单项名称
-				"action" : "settingAction()" //点击该菜单项时执行的JS方法
-			}]
-		});
-	}
-
-	function favoriteAction() {
-		$view.open({
-			"viewid" : "com.yonyou.justoask.Favorite", //目标页面（首字母大写）全名，
-			"isKeep" : "true"
-		});
-	}
-
-	function settingAction() {
 		$view.open({
 			"viewid" : "com.yonyou.justoask.Setting", //目标页面（首字母大写）全名，
 			"isKeep" : "true",
-			"callback" : "closeSettingTheme()"
+			"animation-direction":"left",                             
+			"animation-time":"500",                             
+			"animation-type":"Push"
 		});
-	}
-	
-	function closeSettingTheme(){
-		var theme = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.THEME);
-		if(theme == "2"){
-			$id("viewPage0").setAttribute("background-image", "bgshangwu.png");
-		} else if(theme == "3"){
-			$id("viewPage0").setAttribute("background-image", "bgkatong.png");
-		} else {
-			$id("viewPage0").setAttribute("background-image", "bgjianyue.png");
-		}
 	}
 
 	function com$yonyou$justoask$HomeController$homeLoad(sender, args) {
@@ -110,11 +74,12 @@ try {
 			"error" : "initSpeechCallback()"
 		}, false);
 	}
-	
-	function initSpeechCallback(){
+
+	function initSpeechCallback() {
 	}
 
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
+		$id("audio0").setAttribute("play", true);
 		//说话
 		$service.call("SpeechService.openSpeechBackString", {
 			"bindfield" : "text",
@@ -125,13 +90,13 @@ try {
 
 	function microPhoneCallback(sender, args) {
 		var keyword = $stringToJSON(args).text;
-		if(CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS){
+		if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
 			keyword = keyword.result;
 		}
 		$ctx.put("keyword", keyword);
-		
+
 		//问地点
-		if(keyword.indexOf("位置") > -1 || keyword.indexOf("地点") > -1 || keyword.indexOf("在哪儿") > -1 || keyword.indexOf("地址") > -1){
+		if (keyword.indexOf("位置") > -1 || keyword.indexOf("地点") > -1 || keyword.indexOf("在哪儿") > -1 || keyword.indexOf("地址") > -1) {
 			$device.getLocation({
 				"bindfield" : "location", //位置信息回写的绑定字段
 				"callback" : "getLocationCallBack()", //回调执行的JS方法
@@ -139,25 +104,25 @@ try {
 				"isgetaddress" : "true", //是否需要获取地址
 				"network" : "true" //是否使用wifi定位
 			});
-		}else if(keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1){
+		} else if (keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1) {
 			$view.open({
-				"viewid" : "com.yonyou.justoask.Map",//目标页面（首字母大写）全名，
+				"viewid" : "com.yonyou.justoask.Map", //目标页面（首字母大写）全名，
 				"isKeep" : "true"
 			});
-		}else if(keyword.indexOf("电话") > -1){
+		} else if (keyword.indexOf("电话") > -1) {
 			execContacts(keyword);
 		} else {
 			//百度问题搜索
 			/*var url = $cache.read("url");
 			$service.post({
-				"url" : url + "/JustoaskServer/problem/search",
-				"data" : {
-					"keyword" : keyword
-				},
-				"callback" : "searchCallBack()",
-				"timeout" : "5"//可选参数，超时时间，单位为秒
+			"url" : url + "/JustoaskServer/problem/search",
+			"data" : {
+			"keyword" : keyword
+			},
+			"callback" : "searchCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
 			});*/
-			
+
 			//图灵机器人搜索
 			$service.post({
 				"url" : "http://www.tuling123.com/openapi/api",
@@ -170,28 +135,29 @@ try {
 			})
 		}
 	}
-	
-	function getLocationCallBack(){
+
+	function getLocationCallBack() {
 		var location = $ctx.getString("location");
-		location = $stringToJSON(location);//将字符串转换成JSON对象
-		if(location){
+		location = $stringToJSON(location);
+		//将字符串转换成JSON对象
+		if (location) {
 			speechTimeOrAddr("当前位置是：" + location.address);
 		} else {
 			speechTimeOrAddr("您还在地球上！");
 		}
 	}
-	
-	function execContacts(keyword){
+
+	function execContacts(keyword) {
 		$js.showLoadingBar();
 		var contactsArray = $device.getContacts();
 		$js.hideLoadingBar();
 		contactsArray = $stringToJSON(contactsArray);
-		for (var i=0; i < contactsArray.length; i++) {
+		for (var i = 0; i < contactsArray.length; i++) {
 			var name = contactsArray[i].name;
 			var phones = contactsArray[i].phones;
-			if(phones){
+			if (phones) {
 				var phone = phones[0].phone;
-				if(keyword.indexOf(name) > -1){
+				if (keyword.indexOf(name) > -1) {
 					$tel.call(phone);
 					return;
 				}
@@ -199,8 +165,8 @@ try {
 		}
 		speechTimeOrAddr("对不起，没有找到联系人！");
 	}
-	
-	function speechTimeOrAddr(resultStr){
+
+	function speechTimeOrAddr(resultStr) {
 		$service.call("SpeechService.openStringBackSpeech", {
 			"text" : resultStr,
 			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
@@ -228,8 +194,8 @@ try {
 			"error" : "speechErrorCallback()"
 		}, false);
 	}
-	
-	function speechCallback(){
+
+	function speechCallback() {
 		$window.showModalDialog({
 			"dialogId" : "com.yonyou.justoask.FavoriteChange", //Dialog的唯一标识（包名+ID），ID要求首字母大写
 			"arguments" : {
@@ -242,19 +208,19 @@ try {
 				"dialogWidth" : "250",
 				"dialogHeight" : "180"
 			},
-			"animation-type" : "center",//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
+			"animation-type" : "center", //弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
 			"callback" : "closeFavoriteCallback()"//回调的JS方法
 		});
 	}
-	
-	function speechErrorCallback(){
+
+	function speechErrorCallback() {
 		$alert("语音合成失败！");
 	}
-	
-	function closeFavoriteCallback(){
+
+	function closeFavoriteCallback() {
 		var changeParam = $param.getString("changeResult");
-		
-		if(changeParam == "yes") {
+
+		if (changeParam == "yes") {
 			var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
 			if (autoLogin == "true") {
 				openLogincallback();
@@ -268,7 +234,7 @@ try {
 			}
 		}
 	}
-	
+
 	function openLogincallback() {
 		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
 		//再收藏一个问题
@@ -284,10 +250,10 @@ try {
 			"timeout" : "5"//可选参数，超时时间，单位为秒
 		});
 		/*$service.get({
-			"url" : url + "/JustoaskServer/collect/save?userId=" + userId + "&problemDesc=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"),
-			"callback" : "collectCallBack()",
-			"timeout" : "5"//可选参数，超时时间，单位为秒
-		})*/
+		 "url" : url + "/JustoaskServer/collect/save?userId=" + userId + "&problemDesc=" + $ctx.getString("keyword") + "&answer=" + $ctx.getString("searchResult"),
+		 "callback" : "collectCallBack()",
+		 "timeout" : "5"//可选参数，超时时间，单位为秒
+		 })*/
 	}
 
 	function collectCallBack() {
@@ -312,12 +278,40 @@ try {
 				"dialogWidth" : "250",
 				"dialogHeight" : "180"
 			},
-			"animation-type" : "center"//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
+			"animation-type" : "right"//弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
 		});
+	}
+
+	function com$yonyou$justoask$HomeController$loadList(sender, args) {
+		var json = {
+			list : [{
+				image : "website.png",
+				title : "如何问地点",
+				content : "\"我在哪儿？\""
+			},{
+				image : "event.png",
+				title : "如何问时间",
+				content : "\"现在几点了？\""
+			},{
+				image : "map.png",
+				title : "如何打开导航",
+				content : "\"打开地图\""
+			},{
+				image : "call.png",
+				title : "如何拨打电话",
+				content : "\"打电话给庞统\""
+			},{
+				image : "help.png",
+				title : "如何问问题",
+				content : "\"糖尿病的早期症状是什么？\""
+			}]
+		}
+		$ctx.push(json);
 	}
 
 
 	com.yonyou.justoask.HomeController.prototype = {
+		loadList : com$yonyou$justoask$HomeController$loadList,
 		openShare : com$yonyou$justoask$HomeController$openShare,
 		microphone : com$yonyou$justoask$HomeController$microphone,
 		homeLoad : com$yonyou$justoask$HomeController$homeLoad,

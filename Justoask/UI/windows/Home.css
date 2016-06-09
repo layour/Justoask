@@ -1,6 +1,6 @@
  #Home {
 halign:center;
-height:569;
+height:fill;
 layout:vbox;
 width:fill;
 valign:TOP;
@@ -22,13 +22,15 @@ width:fill;
 valign:TOP;
 }
  #label0 {
+border-bottom-width:1px;
 halign:center;
-height:44;
-color:#ffffff;
-font-size:14;
+height:60;
+color:#dfe3e5;
+font-size:16;
 width:fill;
 font-family:default;
 valign:center;
+border-bottom-color:#485256;
 }
  #listviewdefine0 {
 halign:center;
@@ -39,33 +41,36 @@ width:fill;
 valign:TOP;
 }
  #panel2 {
-border-bottom-width:1;
+border-bottom-width:1px;
+padding-left:20;
+padding-right:20;
 halign:LEFT;
 height:60.0;
 layout:hbox;
-background:#FFFFFF;
 width:fill;
 valign:center;
-border-bottom-color:#C7C7C7;
+border-bottom-color:#485256;
 }
  #image1 {
-height:44;
-width:44;
+height:60;
+width:60;
 }
  #panel3 {
+padding-top:5;
 halign:center;
-height:60.0;
+height:50;
 weight:1;
 layout:vbox;
 width:0;
 valign:TOP;
+padding-bottom:5;
 }
  #label1 {
 halign:left;
 height:0;
 weight:1;
-color:#000000;
-font-size:14;
+color:#e5e6e6;
+font-size:13;
 width:fill;
 font-family:default;
 valign:center;
@@ -74,8 +79,8 @@ valign:center;
 halign:left;
 height:0;
 weight:1;
-color:#000000;
-font-size:14;
+color:#e5e5e5;
+font-size:11;
 width:fill;
 font-family:default;
 valign:center;
@@ -84,32 +89,32 @@ valign:center;
 padding-left:22;
 padding-right:22;
 halign:CENTER;
-height:200;
+height:140;
 layout:hbox;
 width:fill;
 valign:center;
 }
  #button1 {
 halign:right;
-height:44;
-width:44;
-background-image:icon_menu.png;
+height:32;
+width:32;
+background-image:menu.png;
 }
  #panel4 {
 halign:center;
-height:60.0;
+height:1;
 weight:1;
 layout:vbox;
 width:0;
 valign:TOP;
 }
  #image0 {
-height:100;
-width:100;
+height:80;
+width:80;
 }
  #panel5 {
 halign:center;
-height:60.0;
+height:1;
 weight:1;
 layout:vbox;
 width:0;
@@ -117,7 +122,12 @@ valign:TOP;
 }
  #button0 {
 halign:left;
+height:32;
+width:32;
+background-image:share.png;
+}
+ #audio0 {
 height:44;
-width:44;
-background-image:icon_share.png;
+width:320;
+display:none;
 }

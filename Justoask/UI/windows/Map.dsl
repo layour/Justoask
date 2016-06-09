@@ -4,10 +4,10 @@
     <import ref="Map.css" type="css"/>
     <link type="text/css" href="sys/theme.css"/>
     <div id="viewPage0">
-        <navigatorbar id="navigatorbar0" title="地图">
-            <input id="button0" class="ngbbuttonclass" onclick="this.closeMap()" type="button"/>
-            <label id="label0"/> 
-        </navigatorbar>
+        <div id="panel0">
+            <input id="button1" class="ngbbuttonclass" onclick="this.closeMap()" type="button"/>
+            <label id="label1">地图</label> 
+        </div>
         <mapView id="gaodemapview0" address="" posY="" posX="" auto="true" city=""/> 
     </div> 
 </window>

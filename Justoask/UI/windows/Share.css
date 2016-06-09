@@ -10,26 +10,26 @@ halign:center;
 height:fill;
 border-radius:5;
 layout:vbox;
-background:#f1f4f5;
+background:#f0f0f0;
 width:fill;
 valign:TOP;
 }
  #panel0 {
-border-bottom-width:1;
+border-bottom-width:1px;
 halign:CENTER;
 height:44;
 layout:hbox;
 width:fill;
 valign:center;
-border-bottom-color:#c0c0c0;
+border-bottom-color:#c3c3c3;
 }
  #label0 {
 halign:center;
 height:wrap;
-widthWrap:57.0;
-color:#8b8b8b;
-heightWrap:26.0;
-font-size:18;
+widthWrap:51.0;
+color:#262626;
+heightWrap:23.0;
+font-size:16;
 width:wrap;
 font-family:default;
 valign:center;
@@ -45,12 +45,12 @@ valign:center;
  #imagebutton1 {
 width:80;
 icon-width:44;
-font-pressed-color:#6f99bd;
+font-pressed-color:#535353;
 margin-right:10;
 icon-height:44;
 height:80;
-color:#8b8b8b;
-font-size:12;
+color:#535353;
+font-size:11;
 icon-background-image:chat.png;
 icon-pressed-image:chat.png;
 icon-text-spacing:5;
@@ -58,32 +58,32 @@ icon-text-spacing:5;
  #imagebutton0 {
 width:80;
 icon-width:44;
-font-pressed-color:#6f99bd;
+font-pressed-color:#535353;
 icon-height:44;
 height:80;
-color:#8b8b8b;
-font-size:12;
+color:#535353;
+font-size:11;
 margin-left:10;
 icon-background-image:friend.png;
 icon-pressed-image:friend.png;
 icon-text-spacing:5;
 }
  #panel2 {
-border-top-color:#D5D5D5;
+border-top-color:#d2d2d2;
 halign:CENTER;
 height:44;
 layout:hbox;
 width:fill;
 valign:center;
-border-top-width:1;
+border-top-width:1px;
 }
  #label1 {
 halign:center;
 height:wrap;
-widthWrap:38.0;
-color:#6f99bd;
-heightWrap:26.0;
-font-size:18;
+widthWrap:34.0;
+color:#e50011;
+heightWrap:23.0;
+font-size:16;
 width:wrap;
 font-family:default;
 valign:center;

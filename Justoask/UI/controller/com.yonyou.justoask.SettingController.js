@@ -39,43 +39,6 @@ try {
 	function com$yonyou$justoask$SettingController$closeSetting(sender, args) {
 		$view.close();
 	}
-	
-	function com$yonyou$justoask$SettingController$themechange(sender, args) {
-		$view.openPicker({
-			"okaction" : "themeChangeOk()", //确定后执行的JS方法
-			"title" : "主题切换",
-			"pickercount" : "1",
-			"datasource" : {
-				picker : [{
-					select : [{
-						value : 1,
-						content : "简约"
-					}, {
-						value : 2,
-						content : "商务"
-					}, {
-						value : 3,
-						content : "卡通"
-					}]
-				}]
-			},
-			"picker1binder" : "theme" //Context字段名，存放选中项的value
-		})
-	}
-
-	function themeChangeOk() {
-		var changeData = $ctx.getString("theme");
-		var changeValue = $stringToJSON(changeData).value;
-		var changeContent = $stringToJSON(changeData).content;
-		var oldValue = $id("label5").get("value");
-		if (oldValue != changeValue) {
-			$id("label5").set("value", changeContent);
-			$cache.write(com.yonyou.justoask.GlobalResources.settingObj.THEME, changeValue);
-			
-			$view.closeWithCallBack({
-			});
-		}
-	}
 
 	function com$yonyou$justoask$SettingController$speechchange(sender, args) {
 		$view.openPicker({
@@ -149,45 +112,120 @@ try {
 	}
 
 	function com$yonyou$justoask$SettingController$askoption(sender, args) {
-		$alert("敬请期待！");
+		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
+		if (autoLogin == "true") {
+			fristLoginCallback();
+		} else {
+			//先登录
+			$view.open({
+				"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
+				"isKeep" : "true", //保留当前页面不关闭
+				"callback" : "fristLoginCallback()"//回调的JS方法
+			});
+		}
+	}
+	
+	function fristLoginCallback(){
+		var userId = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERID);
+		//查询收藏列表
+		var url = $cache.read("url");
+		$service.post({
+			"url" : url + "/JustoaskServer/collect/list",
+			"data" : {
+				"page.size" : 20,
+				"search_userId" : userId
+			},
+			"callback" : "listCollectCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		});
+	}
+	
+	function listCollectCallBack(){
+		var result = $ctx.param("result");
+		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
+			$alert("查询超时,检查网络！");
+			return;
+		}
+		result = $stringToJSON(result);
+		var list = [];
+		for (var i=0; i < result.rows.length; i++) {
+			var itemObj = {
+				"problemDesc" : result.rows[i].problem.problemDesc,
+				"answer" : result.rows[i].problem.answer,
+				"collectTime" : result.rows[i].collectTime 
+			}
+		  	list[i] = itemObj;
+		};
+		$view.open({
+			"viewid" : "com.yonyou.justoask.Favorite", //目标页面（首字母大写）全名，
+			"isKeep" : "true",
+			"listData" : list
+		});
 	}
 
 	function com$yonyou$justoask$SettingController$loadsetting(sender, args) {
-		var theme = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.THEME);
+		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
+		if (autoLogin == "true") {
+			var userName = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERNAME);
+			$id("label6").set("value", userName);
+		}
+
 		var speech = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH);
 		var type = $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE);
-		if(theme == "1"){
-			$id("label5").set("value", "简约");
-		} else if(theme == "2"){
-			$id("label5").set("value", "商务");
-		} else if(theme == "3"){
-			$id("label5").set("value", "卡通");
-		}
-		if(speech == "75"){
+		if (speech == "75") {
 			$id("label2").set("value", "快速");
-		} else if(speech == "50"){
+		} else if (speech == "50") {
 			$id("label2").set("value", "标准");
-		} else if(speech == "25"){
+		} else if (speech == "25") {
 			$id("label2").set("value", "慢速");
 		}
-		if(type == "xiaoyan"){
+		if (type == "xiaoyan") {
 			$id("label8").set("value", "青年女声");
-		} else if(type == "xiaoyu"){
+		} else if (type == "xiaoyu") {
 			$id("label8").set("value", "青年男声");
-		} else if(type == "vinn"){
+		} else if (type == "vinn") {
 			$id("label8").set("value", "儿童女声");
-		} else if(type == "vixx"){
+		} else if (type == "vixx") {
 			$id("label8").set("value", "儿童男声");
 		}
 	}
 
+	function com$yonyou$justoask$SettingController$updateVersion(sender, args) {
+		$alert("已是最新版本！");
+	}
+
+	function com$yonyou$justoask$SettingController$userLogin(sender, args) {
+		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
+		if (autoLogin == "true") {
+			var flag = $confirm("确定注销登录？");
+			if(flag == true || flag == "true"){
+				$cache.write(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN, false);
+				$cache.write(com.yonyou.justoask.GlobalResources.userObj.USERNAME, " ");
+				$id("label6").set("value", "请登录");
+			}
+		} else {
+			//先登录
+			$view.open({
+				"viewid" : "com.yonyou.justoask.Login", //目标页面（首字母大写）全名，
+				"isKeep" : "true", //保留当前页面不关闭
+				"callback" : "isAutoLoginCallback()"//回调的JS方法
+			});
+		}
+	}
+	
+	function isAutoLoginCallback(){
+		var userName = $cache.read(com.yonyou.justoask.GlobalResources.userObj.USERNAME);
+		$id("label6").set("value", userName);
+	}
+
 
 	com.yonyou.justoask.SettingController.prototype = {
+		userLogin : com$yonyou$justoask$SettingController$userLogin,
+		updateVersion : com$yonyou$justoask$SettingController$updateVersion,
 		loadsetting : com$yonyou$justoask$SettingController$loadsetting,
 		askoption : com$yonyou$justoask$SettingController$askoption,
 		typechange : com$yonyou$justoask$SettingController$typechange,
 		speechchange : com$yonyou$justoask$SettingController$speechchange,
-		themechange : com$yonyou$justoask$SettingController$themechange,
 		closeSetting : com$yonyou$justoask$SettingController$closeSetting,
 		initialize : com$yonyou$justoask$SettingController$initialize,
 		evaljs : com$yonyou$justoask$SettingController$evaljs

@@ -10,7 +10,7 @@ halign:center;
 height:fill;
 border-radius:5;
 layout:vbox;
-background:#F7F8F8;
+background:#f0f0f0;
 width:fill;
 valign:TOP;
 }
@@ -26,10 +26,10 @@ border-bottom-color:#c0c0c0;
  #label0 {
 halign:center;
 height:wrap;
-widthWrap:152.0;
-color:#8b8b8b;
-heightWrap:26.0;
-font-size:18;
+widthWrap:136.0;
+color:#262626;
+heightWrap:23.0;
+font-size:16;
 width:wrap;
 font-family:default;
 valign:center;
