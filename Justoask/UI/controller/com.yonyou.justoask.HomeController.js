@@ -189,9 +189,8 @@ try {
 		}
 		//将字符串转换成JSON对象
 		result = $stringToJSON(result);
-		$alert(baiduResultJson)
 		var baiduResultStr = baiduResultJson.result;
-		baiduResultStr = baiduResultStr + "结果" + baiduResultJson.conut + "：";
+		baiduResultStr = baiduResultStr + "结果" + (baiduResultJson.conut + 1) + "：";
 		baiduResultStr = baiduResultStr + result.text;
 		
 		$ctx.put("searchResult", baiduResultStr);
