@@ -14,13 +14,13 @@ width:fill;
 valign:TOP;
 }
  #panel4 {
-padding-right:8;
-border-bottom-width:1px;
 padding-left:8;
+border-bottom-width:1px;
+padding-right:8;
 halign:LEFT;
 height:49;
-layout:hbox;
 background:#f0f0f0;
+layout:hbox;
 width:fill;
 valign:center;
 border-bottom-color:#c3c3c3;
@@ -46,17 +46,17 @@ valign:center;
 height:30;
 border-radius:5;
 color:#dee8ed;
-background:#595959;
 font-size:14;
+background:#595959;
 width:48;
 }
  #panel0 {
-border-bottom-width:1px;
 padding-left:5;
+border-bottom-width:1px;
 halign:LEFT;
 height:50;
-layout:hbox;
 background:#f7f7f7;
+layout:hbox;
 width:fill;
 valign:center;
 border-bottom-color:#d2d2d2;
@@ -81,18 +81,18 @@ halign:LEFT;
 height:48;
 weight:1;
 color:#595959;
-background:#f7f7f7;
 font-size:14;
+background:#f7f7f7;
 width:0;
 font-family:default;
 }
  #panel1 {
-padding-left:5;
 border-bottom-width:1px;
+padding-left:5;
 halign:LEFT;
 height:50;
-background:#f7f7f7;
 layout:hbox;
+background:#f7f7f7;
 width:fill;
 valign:center;
 border-bottom-color:#d2d2d2;
@@ -117,18 +117,18 @@ halign:LEFT;
 height:48;
 weight:1;
 color:#595959;
-background:#f7f7f7;
 font-size:14;
+background:#f7f7f7;
 width:0;
 font-family:default;
 }
  #panel2 {
-padding-left:5;
 border-bottom-width:1px;
+padding-left:5;
 halign:LEFT;
 height:50;
-background:#f7f7f7;
 layout:hbox;
+background:#f7f7f7;
 width:fill;
 valign:center;
 border-bottom-color:#d2d2d2;
@@ -153,8 +153,8 @@ halign:LEFT;
 height:48;
 weight:1;
 color:#595959;
-background:#f7f7f7;
 font-size:14;
+background:#f7f7f7;
 width:0;
 font-family:default;
 }

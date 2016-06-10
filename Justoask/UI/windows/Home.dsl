@@ -6,7 +6,9 @@
     <script src="#{path.controller}/com.yonyou.justoask.GlobalResources.js" type="text/javascript"/>
     <div id="viewPage0" onload="this.homeLoad()">
         <div id="panel0">
-            <label id="label0">说唐诗宋词试试？</label>
+            <div id="panel6">
+                <label id="label0">说唐诗宋词试试？</label> 
+            </div>
             <listView id="listviewdefine0" bindfield="list" onload="this.loadList()" collapsed="true">
                 <div id="panel2">
                     <image id="image1" bindfield="image" scaletype="fitcenter" src="website.png"/>

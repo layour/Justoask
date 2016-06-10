@@ -5,25 +5,31 @@
   <!--view id="demo" ref="demo.dsl"><extend screenOrientation="landscape|portrait|unspecified"/></view-->  
   <!--view id="demo" ref="demo.dsl"><extend windowSoftInputMode="stateUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|stateVisible|stateAlwaysVisible|adjustUnspecified|adjustResize|adjustPan"/></view-->  
   <view id="Home" ref="Home.dsl" include="true"> 
-    <extend type="ios" statusbarcolor="#cccccc"/> 
+    <extend type="ios" statusbarcolor="#0b0703"/> 
   </view>  
   <view id="Setting" ref="Setting.dsl" include="true"> 
-    <extend type="ios" statusbarcolor="#858586"/> 
+    <extend type="ios" statusbarcolor="#f0f0f0"/> 
   </view>  
   <view id="Favorite" ref="Favorite.dsl" include="true"> 
-    <extend type="ios" statusbarcolor="#858586"/> 
+    <extend type="ios" statusbarcolor="#f0f0f0"/> 
   </view>  
   <view id="Login" ref="Login.dsl" include="true"> 
-    <extend type="ios" statusbarcolor="#cccccc"/> 
+    <extend type="ios" statusbarcolor="#0b0703"/> 
   </view>  
   <view id="Register" ref="Register.dsl" include="true"> 
-    <extend type="ios" statusbarcolor="#858586"/> 
+    <extend type="ios" statusbarcolor="#f0f0f0"/> 
   </view>  
-  <view id="Share" ref="Share.dlg" include="true"/>  
-  <view id="FavoriteChange" ref="FavoriteChange.dlg" include="true"/>  
+  <view id="Share" ref="Share.dlg" include="true"> 
+    <extend type="ios" statusbarcolor="#47443f"/> 
+  </view>  
+  <view id="FavoriteChange" ref="FavoriteChange.dlg" include="true"> 
+    <extend type="ios" statusbarcolor="#47443f"/> 
+  </view>  
   <import id="weixin" type="mobile" ref="component"/>  
   <import id="SpeechService" type="mobile" ref="service"/>  
-  <view id="Map" ref="Map.dsl" include="true"/>  
+  <view id="Map" ref="Map.dsl" include="true"> 
+    <extend type="ios" statusbarcolor="#f0f0f0"/> 
+  </view>  
   <import id="gaodeMap" type="mobile" ref="component"/>  
   <permission id="internet"/>  
   <permission id="read_contacts"/> 

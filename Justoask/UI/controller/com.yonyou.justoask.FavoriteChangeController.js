@@ -37,15 +37,15 @@ try {
 	}
 
 	function com$yonyou$justoask$FavoriteChangeController$yesFavorite(sender, args) {
-		$view.closeWithCallBack({
+		$window.close({
 			"changeResult" : "yes"
 		})
 	}
 
 	function com$yonyou$justoask$FavoriteChangeController$noFavorite(sender, args) {
-		$view.closeWithCallBack({
+		$window.close({
 			"changeResult" : "no"
-		})
+		});
 	}
 
 

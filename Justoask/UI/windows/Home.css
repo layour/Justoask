@@ -21,16 +21,23 @@ layout:vbox;
 width:fill;
 valign:TOP;
 }
- #label0 {
+ #panel6 {
 border-bottom-width:1px;
 halign:center;
-height:60;
+height:60.0;
+layout:vbox;
+width:fill;
+valign:TOP;
+border-bottom-color:#485256;
+}
+ #label0 {
+halign:center;
+height:55;
 color:#dfe3e5;
 font-size:16;
 width:fill;
 font-family:default;
 valign:center;
-border-bottom-color:#485256;
 }
  #listviewdefine0 {
 halign:center;

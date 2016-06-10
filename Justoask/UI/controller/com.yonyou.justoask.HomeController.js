@@ -47,7 +47,7 @@ try {
 	}
 
 	function com$yonyou$justoask$HomeController$homeLoad(sender, args) {
-		$js.backConfirm();
+		//$js.backConfirm();
 
 		//初始化URL
 		$cache.write("url", "http://115.28.91.199:8080");
@@ -108,26 +108,15 @@ try {
 			execContacts(keyword);
 		} else {
 			//百度问题搜索
-			/*var url = $cache.read("url");
+			var url = $cache.read("url");
 			$service.post({
-			"url" : url + "/JustoaskServer/problem/search",
-			"data" : {
-			"keyword" : keyword
-			},
-			"callback" : "searchCallBack()",
-			"timeout" : "5"//可选参数，超时时间，单位为秒
-			});*/
-
-			//图灵机器人搜索
-			$service.post({
-				"url" : "http://www.tuling123.com/openapi/api",
+				"url" : url + "/JustoaskServer/problem/search",
 				"data" : {
-					"key" : "707fde02c577b0bb391c0fcc1b2a16f6",
-					"info" : keyword
+					"keyword" : keyword
 				},
-				"callback" : "searchCallBack()",
+				"callback" : "baiduSearchCallBack()",
 				"timeout" : "5"//可选参数，超时时间，单位为秒
-			})
+			});
 		}
 	}
 
@@ -168,6 +157,29 @@ try {
 			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH)
 		}, false);
 	}
+	
+		
+	var baiduResultJson;
+	function baiduSearchCallBack(){
+		var result = $ctx.param("result");
+		if (com.yonyou.justoask.GlobalResources.isEmptyString(result)) {
+			$alert("搜索超时,检查网络！");
+			return;
+		}
+		//将字符串转换成JSON对象
+		baiduResultJson = $stringToJSON(result);
+		
+		//图灵机器人搜索
+		$service.post({
+			"url" : "http://www.tuling123.com/openapi/api",
+			"data" : {
+				"key" : "707fde02c577b0bb391c0fcc1b2a16f6",
+				"info" : $ctx.getString("keyword")
+			},
+			"callback" : "searchCallBack()",
+			"timeout" : "5"//可选参数，超时时间，单位为秒
+		})
+	}
 
 	function searchCallBack() {
 		var result = $ctx.param("result");
@@ -177,26 +189,31 @@ try {
 		}
 		//将字符串转换成JSON对象
 		result = $stringToJSON(result);
-		var keyword = $ctx.getString("keyword");
-		$ctx.put("searchResult", result.text);
+		$alert(baiduResultJson)
+		var baiduResultStr = baiduResultJson.result;
+		baiduResultStr = baiduResultStr + "结果" + baiduResultJson.conut + "：";
+		baiduResultStr = baiduResultStr + result.text;
+		
+		$ctx.put("searchResult", baiduResultStr);
 
 		//复读问题是否收藏
 		$service.call("SpeechService.openStringBackSpeech", {
-			"text" : "您的问题是" + keyword + "。答案是" + result.text + "。答案阅读完了，您是否收藏这个问题？",
+			"text" : "您的问题是" + $ctx.getString("keyword") + baiduResultStr + "。答案阅读完了，您是否收藏这个问题？",
 			"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 			"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
 			"callback" : "speechCallback()",
 			"error" : "speechErrorCallback()"
 		}, false);
 	}
+	
+	function speechErrorCallback() {
+		$alert("语音合成失败！");
+	}
 
 	function speechCallback() {
 		$window.showModalDialog({
 			"dialogId" : "com.yonyou.justoask.FavoriteChange", //Dialog的唯一标识（包名+ID），ID要求首字母大写
-			"arguments" : {
-				"keyword" : $ctx.getString("keyword"),
-				"searchResult" : $ctx.getString("searchResult")
-			}, //arguments为传递至Dialog的自定义JSON参数
+			"arguments" : {}, //arguments为传递至Dialog的自定义JSON参数
 			"features" : {
 				//"dialogLeft" : "100",//Dialog距离屏幕左侧的位置
 				//"dialogTop" : "150",//Dialog距离屏幕顶端的位置
@@ -206,10 +223,6 @@ try {
 			"animation-type" : "center", //弹出Dialog的起始位置，取值范围为top|bottom|left|right|center
 			"callback" : "closeFavoriteCallback()"//回调的JS方法
 		});
-	}
-
-	function speechErrorCallback() {
-		$alert("语音合成失败！");
 	}
 
 	function closeFavoriteCallback() {

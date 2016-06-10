@@ -7,7 +7,7 @@
     <div id="viewPage0">
         <div id="panel4">
             <input id="button1" class="ngbbuttonclass" onclick="this.closeRegister()" type="button"/>
-            <label id="label3">收藏夹</label>
+            <label id="label3">注册</label>
             <input id="button3" value="注册" class="textbtnclass" onclick="this.userRegister()" type="button"/> 
         </div>
         <div id="panel0">
