@@ -84,39 +84,42 @@ try {
 	}
 
 	function microPhoneCallback(sender, args) {
+		$alert(args);
 		var keyword = $stringToJSON(args).text;
 		if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
 			keyword = keyword.result;
 		}
 		$ctx.put("keyword", keyword);
 
-		//问地点
-		if (keyword.indexOf("位置") > -1 || keyword.indexOf("地点") > -1 || keyword.indexOf("在哪儿") > -1 || keyword.indexOf("地址") > -1) {
-			$device.getLocation({
-				"bindfield" : "location", //位置信息回写的绑定字段
-				"callback" : "getLocationCallBack()", //回调执行的JS方法
-				"single" : "true", //是否只获取1次
-				"isgetaddress" : "true", //是否需要获取地址
-				"network" : "true" //是否使用wifi定位
-			});
-		} else if (keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1) {
-			$view.open({
-				"viewid" : "com.yonyou.justoask.Map", //目标页面（首字母大写）全名，
-				"isKeep" : "true"
-			});
-		} else if (keyword.indexOf("电话") > -1) {
-			execContacts(keyword);
-		} else {
-			//百度问题搜索
-			var url = $cache.read("url");
-			$service.post({
-				"url" : url + "/JustoaskServer/problem/search",
-				"data" : {
-					"keyword" : keyword
-				},
-				"callback" : "baiduSearchCallBack()",
-				"timeout" : "5"//可选参数，超时时间，单位为秒
-			});
+		if(keyword){
+			//问地点
+			if (keyword.indexOf("位置") > -1 || keyword.indexOf("地点") > -1 || keyword.indexOf("在哪儿") > -1 || keyword.indexOf("地址") > -1) {
+				$device.getLocation({
+					"bindfield" : "location", //位置信息回写的绑定字段
+					"callback" : "getLocationCallBack()", //回调执行的JS方法
+					"single" : "true", //是否只获取1次
+					"isgetaddress" : "true", //是否需要获取地址
+					"network" : "true" //是否使用wifi定位
+				});
+			} else if (keyword.indexOf("地图") > -1 || keyword.indexOf("导航") > -1) {
+				$view.open({
+					"viewid" : "com.yonyou.justoask.Map", //目标页面（首字母大写）全名，
+					"isKeep" : "true"
+				});
+			} else if (keyword.indexOf("电话") > -1) {
+				execContacts(keyword);
+			} else {
+				//百度问题搜索
+				var url = $cache.read("url");
+				$service.post({
+					"url" : url + "/JustoaskServer/problem/search",
+					"data" : {
+						"keyword" : keyword
+					},
+					"callback" : "baiduSearchCallBack()",
+					"timeout" : "5"//可选参数，超时时间，单位为秒
+				});
+			}
 		}
 	}
 
