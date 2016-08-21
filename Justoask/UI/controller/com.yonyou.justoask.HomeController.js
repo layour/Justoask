@@ -54,6 +54,12 @@ try {
 
 		//初始化语音
 		$service.call("SpeechService.init", {}, false);
+		
+		//初始化分享
+		$wxshare.init({
+			"appid" : "wx853ca6a405d3947d"
+		});
+		//签名a74ab91cf78a537e8a0266875b1d340d
 
 		//延时提示
 		setTimeout(initSpeech, 1000);

@@ -3,7 +3,7 @@
 <window xmlns:web="http://www.yonyou.com/uapmobile/dsl" id="Share" controller="ShareController" type="dialog" namespace="com.yonyou.justoask">
     <import ref="Share.css" type="css"/>
     <link type="text/css" href="sys/theme.css"/>
-    <div id="viewPage0" onload="this.loadShare()">
+    <div id="viewPage0">
         <div id="panel0">
             <label id="label0">分享到</label> 
         </div>

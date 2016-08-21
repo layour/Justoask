@@ -43,29 +43,29 @@ width:fill;
 valign:center;
 }
  #imagebutton1 {
-width:80;
-icon-width:44;
-font-pressed-color:#535353;
 margin-right:10;
 icon-height:44;
 height:80;
 color:#535353;
 font-size:11;
+width:80;
 icon-background-image:chat.png;
+icon-width:44;
 icon-pressed-image:chat.png;
+font-pressed-color:#535353;
 icon-text-spacing:5;
 }
  #imagebutton0 {
-width:80;
-icon-width:44;
-font-pressed-color:#535353;
 icon-height:44;
 height:80;
 color:#535353;
 font-size:11;
-margin-left:10;
+width:80;
 icon-background-image:friend.png;
+margin-left:10;
+icon-width:44;
 icon-pressed-image:friend.png;
+font-pressed-color:#535353;
 icon-text-spacing:5;
 }
  #panel2 {

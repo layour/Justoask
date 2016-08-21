@@ -36,23 +36,6 @@ try {
 		eval(js)
 	}
 
-	function com$yonyou$justoask$ShareController$loadShare(sender, args) {
-		/*if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
-			$wxshare.init({
-				"appid" : "wx853ca6a405d3947d"
-			})//IOS
-		} else if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceAndroid) {
-			$wxshare.init({
-				"appid" : "wx853ca6a405d3947d"
-			})//android
-		}*/
-		//初始化分享
-		$wxshare.init({
-			"appid" : "wx853ca6a405d3947d"
-		});
-		//签名a74ab91cf78a537e8a0266875b1d340d
-	}
-
 	function com$yonyou$justoask$ShareController$friendEdit(sender, args) {
 		var sharedes = "你有问题吗？快来问一下吧！";
 		/*$wxshare.sendTextandImage({
@@ -93,7 +76,6 @@ try {
 
 
 	com.yonyou.justoask.ShareController.prototype = {
-		loadShare : com$yonyou$justoask$ShareController$loadShare,
 		circleEidt : com$yonyou$justoask$ShareController$circleEidt,
 		friendEdit : com$yonyou$justoask$ShareController$friendEdit,
 		initialize : com$yonyou$justoask$ShareController$initialize,
