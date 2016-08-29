@@ -79,7 +79,10 @@ try {
 	function initSpeechCallback() {
 	}
 
+	var count=0;
+	var splitSearchResult;
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
+		count = 0;
 		$id("audio0").setAttribute("play", true);
 		//说话
 		$service.call("SpeechService.openSpeechBackString", {
@@ -222,8 +225,6 @@ try {
 		}, false);
 	}
 	
-	var count=0;
-	var splitSearchResult;
 	function selectOkCallback(sender, args) {
 		var searchResult = $ctx.getString("searchResult");
 		if(searchResult){
@@ -244,12 +245,20 @@ try {
 			}, false);
 			count++;
 		} else if(yesOrNo.indexOf("下一条") > -1){
+			var oneItemResult = "";
+			var callbackValue = "selectCallback()";
+			if(splitSearchResult[count]){
+				oneItemResult = splitSearchResult[count] + "。第" + (count+1) + "条答案阅读完了，请说下一条、停止或再见。";
+			} else {
+				oneItemResult = "没有更多答案了,您是否收藏这个问题？";
+				callbackValue = "speechCallback()";
+			}
 			//下一条
 			$service.call("SpeechService.openStringBackSpeech", {
-				"text" : splitSearchResult[count] + "。第" + (count+1) + "条答案阅读完了，请说下一条、停止或再见。",
+				"text" : oneItemResult,
 				"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 				"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
-				"callback" : "selectCallback()",
+				"callback" : callbackValue,
 				"error" : "speechErrorCallback()"
 			}, false);
 			count++;
@@ -268,7 +277,7 @@ try {
 		} else{
 			//其它
 			$service.call("SpeechService.openStringBackSpeech", {
-				"text" : "没有听明白你的意思，请说下一条、停止或再见。",
+				"text" : "没有听明白您的意思，请说下一条、停止或再见。",
 				"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 				"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
 				"callback" : "selectCallback()",
