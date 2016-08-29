@@ -81,8 +81,10 @@ try {
 
 	var count=0;
 	var splitSearchResult;
+	var askto = false;
 	function com$yonyou$justoask$HomeController$microphone(sender, args) {
 		count = 0;
+		askto = false;
 		$id("audio0").setAttribute("play", true);
 		//说话
 		$service.call("SpeechService.openSpeechBackString", {
@@ -234,8 +236,10 @@ try {
 		var yesOrNo = $stringToJSON(args).text;
 		if (CurrentEnvironment.DeviceType == CurrentEnvironment.DeviceIOS) {
 			yesOrNo = yesOrNo.result;
-		} else if(yesOrNo.indexOf("是") > -1){
+		}
+		if(yesOrNo.indexOf("是") > -1){
 			//是
+			askto = true;
 			$service.call("SpeechService.openStringBackSpeech", {
 				"text" : splitSearchResult[count] + "。第" + (count+1) + "条答案阅读完了，请说下一条、停止或再见。",
 				"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
@@ -244,6 +248,7 @@ try {
 				"error" : "speechErrorCallback()"
 			}, false);
 			count++;
+			return;
 		} else if(yesOrNo.indexOf("下一条") > -1){
 			var oneItemResult = "";
 			var callbackValue = "selectCallback()";
@@ -262,6 +267,7 @@ try {
 				"error" : "speechErrorCallback()"
 			}, false);
 			count++;
+			return;
 		} else if(yesOrNo.indexOf("停止") > -1){
 			//停止
 			$service.call("SpeechService.openStringBackSpeech", {
@@ -271,13 +277,25 @@ try {
 				"callback" : "speechCallback()",
 				"error" : "speechErrorCallback()"
 			}, false);
+			return;
 		} else if(yesOrNo.indexOf("再见") > -1){
 			//再见
 			$view.close();
-		} else{
+			return;
+		}
+		if(askto){
 			//其它
 			$service.call("SpeechService.openStringBackSpeech", {
 				"text" : "没有听明白您的意思，请说下一条、停止或再见。",
+				"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
+				"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
+				"callback" : "selectCallback()",
+				"error" : "speechErrorCallback()"
+			}, false);
+		} else {
+			//其它
+			$service.call("SpeechService.openStringBackSpeech", {
+				"text" : "没有听明白您的意思，请说是或否。",
 				"voiceName" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.TYPE),
 				"speed" : $cache.read(com.yonyou.justoask.GlobalResources.settingObj.SPEECH),
 				"callback" : "selectCallback()",
