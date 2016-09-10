@@ -50,6 +50,7 @@ try {
 		//$js.backConfirm();
 
 		//初始化URL
+		//$cache.write("url", "http://192.168.1.106:8080");
 		$cache.write("url", "http://115.28.91.199:8080");
 
 		//初始化语音
