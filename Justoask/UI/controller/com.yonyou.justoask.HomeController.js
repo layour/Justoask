@@ -101,6 +101,7 @@ try {
 			keyword = keyword.result;
 		}
 		$ctx.put("keyword", keyword);
+		$alert(keyword)
 
 		if(keyword){
 			//问地点
@@ -180,6 +181,7 @@ try {
 			$alert("搜索超时,检查网络！");
 			return;
 		}
+		
 		//将字符串转换成JSON对象
 		baiduResultJson = $stringToJSON(result);
 		
@@ -201,6 +203,7 @@ try {
 			$alert("搜索超时,检查网络！");
 			return;
 		}
+		
 		//将字符串转换成JSON对象
 		result = $stringToJSON(result);
 		var baiduResultStr = baiduResultJson.result;
@@ -249,6 +252,8 @@ try {
 				"error" : "speechErrorCallback()"
 			}, false);
 			count++;
+			return;
+		} else if(yesOrNo.indexOf("否") > -1){
 			return;
 		} else if(yesOrNo.indexOf("下一条") > -1){
 			var oneItemResult = "";
