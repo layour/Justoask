@@ -62,7 +62,7 @@ try {
 		if(result.rows.length <= 0){
 			return;
 		}
-		$alert(result.rows);
+		//$alert(result.rows);
 		for (var i=0; i < result.rows.length; i++) {
 			var itemObj = {
 				"problemDesc" : result.rows[i].problem.problemDesc,
@@ -71,7 +71,7 @@ try {
 			}
 		  	list[i] = itemObj;
 		};
-		$alert(list);
+		//$alert(list);
 		$ctx.push({"list" : list});
 	}
 

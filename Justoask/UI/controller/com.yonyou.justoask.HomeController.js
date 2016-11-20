@@ -101,7 +101,7 @@ try {
 			keyword = keyword.result;
 		}
 		$ctx.put("keyword", keyword);
-		$alert(keyword)
+		//$alert(keyword)
 
 		if(keyword){
 			//问地点
