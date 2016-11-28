@@ -9,11 +9,11 @@
         <div id="panel1">
             <div id="panel2">
                 <image id="image0" scaletype="fitcenter" src="user.png"/>
-                <input bindfield="" id="textbox0" maxlength="256" placeholder="用户名" value="15801611228" type="text"/> 
+                <input bindfield="" id="textbox0" maxlength="256" placeholder="用户名" type="text"/> 
             </div>
             <div id="panel3">
                 <image id="image1" scaletype="fitcenter" src="password.png"/>
-                <input bindfield="" id="textbox1" maxlength="256" placeholder="密码" value="a1234567" type="password"/> 
+                <input bindfield="" id="textbox1" maxlength="256" placeholder="密码" type="password"/> 
             </div> 
         </div>
         <div id="panel4">

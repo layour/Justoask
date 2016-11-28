@@ -26,11 +26,11 @@ margin-right:22;
 halign:center;
 height:88;
 border-radius:5;
-layout:vbox;
 background:#f0f0f0;
+layout:vbox;
 width:fill;
-margin-left:22;
 opacity:0.5;
+margin-left:22;
 valign:TOP;
 }
  #panel2 {
