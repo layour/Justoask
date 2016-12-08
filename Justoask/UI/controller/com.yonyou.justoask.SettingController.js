@@ -162,10 +162,6 @@ try {
 		}
 	}
 
-	function com$yonyou$justoask$SettingController$updateVersion(sender, args) {
-		$alert("已是最新版本！");
-	}
-
 	function com$yonyou$justoask$SettingController$userLogin(sender, args) {
 		var autoLogin = $cache.read(com.yonyou.justoask.GlobalResources.userObj.AUTOLOGIN);
 		if (autoLogin == "true") {
@@ -193,7 +189,6 @@ try {
 
 	com.yonyou.justoask.SettingController.prototype = {
 		userLogin : com$yonyou$justoask$SettingController$userLogin,
-		updateVersion : com$yonyou$justoask$SettingController$updateVersion,
 		loadsetting : com$yonyou$justoask$SettingController$loadsetting,
 		askoption : com$yonyou$justoask$SettingController$askoption,
 		typechange : com$yonyou$justoask$SettingController$typechange,

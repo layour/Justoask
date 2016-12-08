@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<application id="Justoask" appname="问一下" versionCode="1" versionName="1" icon="app" theme="blue" jsengine="v2.0" package="com.yonyou.justoask" language="zh_cn" autoCheckUpdate="false" push_enable="false" isLibrary="false" reinforcement="false" sandbox="false"> 
+<application id="Justoask" appname="问一下" versionCode="3" versionName="3" icon="app" theme="blue" jsengine="v2.0" package="com.yonyou.justoask" language="zh_cn" autoCheckUpdate="false" push_enable="false" isLibrary="false" reinforcement="false" sandbox="false"> 
   <start view="Home"/>  
   <!--view id="demo" ref="demo.dsl"><extend screenOrientation="landscape|portrait|unspecified"/></view-->  
   <!--view id="demo" ref="demo.dsl"><extend windowSoftInputMode="stateUnspecified|stateUnchanged|stateHidden|stateAlwaysHidden|stateVisible|stateAlwaysVisible|adjustUnspecified|adjustResize|adjustPan"/></view-->  
@@ -91,8 +90,7 @@
   <permission id="android.permission.WRITE_EXTERNAL_STORAGE"/>  
   <permission id="android.permission.WRITE_SMS"/>  
   <permission id="com.android.alarm.permission.SET_ALARM"/> 
-</application>
-<!--
+</application><!--
 【屏幕显示方向】
   screenOrientation: 屏幕显示方向
     landscape: 横向
